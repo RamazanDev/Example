@@ -15,10 +15,6 @@ final class AuthViewController: UIViewController {
     private let logoLabel = UILabel()
     private let activityIndicator = UIActivityIndicatorView()
     
-    private var imageCenterYConstraint: NSLayoutConstraint!
-    private var imageHeightConstraint: NSLayoutConstraint!
-    private var imageWidthConstraint: NSLayoutConstraint!
-    private var imageLeftAnchorConstraint: NSLayoutConstraint!
     private var imageCenterXConstraint: NSLayoutConstraint!
     
     
@@ -35,7 +31,10 @@ final class AuthViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        startAnimationImageView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            print(self.activityIndicator.frame)
+            self.startAnimationImageView()
+        }
     }
     
     private func setupSubviews() {
@@ -58,33 +57,32 @@ final class AuthViewController: UIViewController {
         logoImageView.image = Images.launchScreenImage()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        imageCenterYConstraint = logoImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        logoImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         imageCenterXConstraint = logoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        imageHeightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: self.view.frame.height)
-        imageWidthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width)
-        NSLayoutConstraint.activate([imageCenterYConstraint,
-                                     imageCenterXConstraint,
-                                     imageHeightConstraint,
-                                     imageWidthConstraint])
+        logoImageView.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        NSLayoutConstraint.activate([imageCenterXConstraint])
+        
+        self.view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.color = .white
+        
+        activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        activityIndicator.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60).isActive = true
+        activityIndicator.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        activityIndicator.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
     }
     
     private func startAnimationImageView() {
-        
-        imageLeftAnchorConstraint = logoImageView.leftAnchor.constraint(equalTo: self.logoLabel.rightAnchor, constant: 8)
-        imageHeightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: 50)
-        imageWidthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 50)
-        imageCenterYConstraint = logoImageView.centerYAnchor.constraint(equalTo: self.logoLabel.centerYAnchor)
         imageCenterXConstraint.isActive = false
-        
-        let x = self.logoLabel.frame.midX + 50
+        let x = self.logoLabel.frame.midX + 40
         let y = self.logoLabel.frame.minY
         
-        UIView.animate(withDuration: 0.5) {
-//            NSLayoutConstraint.activate([self.imageWidthConstraint,
-//                                         self.imageHeightConstraint,
-//                                         self.imageLeftAnchorConstraint,
-//                                         self.imageCenterYConstraint])
+        UIView.animate(withDuration: 0.8) {
+            self.activityIndicator.isHidden = true
             self.logoImageView.frame = CGRect(x: x, y: y, width: 50, height: 50)
             self.logoImageView.layer.cornerRadius = 25
             self.view.layoutIfNeeded()
