@@ -10,10 +10,23 @@ import UIKit
 
 final class AuthViewController: UIViewController {
     
-    private let inputButton = UIButton()
     private let logoImageView = UIImageView()
     private let logoLabel = UILabel()
     private let activityIndicator = UIActivityIndicatorView()
+    
+    private let getStartedLabel = UILabel(text: "Начните с помощью", font: Font.sfuiDisplayRegular(size: 14))
+    
+    private let registrationLabel = UILabel(text: "Или зарегистрируйтесь с", font: Font.sfuiDisplayRegular(size: 14))
+    
+    private let loginLabel = UILabel(text: "Уже зарегистрированы?", font: Font.sfuiDisplayRegular(size: 14))
+    
+    private let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: UIColor.white, font: Font.sfuiDisplayRegular(size: 16), isShadow: true, cornerRadius: 8, image: Images.googleLogo()!)
+    
+    private let appleButton = UIButton(title: "Apple ID", titleColor: .black, backgroundColor: UIColor.white, font: Font.sfuiDisplayRegular(size: 16), isShadow: true, cornerRadius: 8, image: Images.appleLogo()!)
+    
+    private let registrationButton = UIButton(title: "Email", titleColor: .white, backgroundColor: UIColor.buttonDark(), font: Font.sfuiDisplayRegular(size: 16), isShadow: false, cornerRadius: 8)
+    
+    private let loginButton = UIButton(title: "Войти", titleColor: .red, backgroundColor: UIColor.white, font: Font.sfuiDisplayRegular(size: 16), isShadow: true, cornerRadius: 8)
     
     private var imageCenterXConstraint: NSLayoutConstraint!
     
@@ -31,23 +44,64 @@ final class AuthViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            print(self.activityIndicator.frame)
-            self.startAnimationImageView()
-        }
+        self.startAnimationImageView()
     }
     
     private func setupSubviews() {
         
         self.view.addSubview(logoLabel)
         
-        logoLabel.font = Font.sfuiDisplayRegular(size: 40)!
-        logoLabel.text = "IGid"
+        logoLabel.font = Font.sfuiDisplayMedium(size: 48)!
+        logoLabel.text = "iGid"
         logoLabel.textColor = .black
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         logoLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -25).isActive = true
         logoLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 140).isActive = true
+
+        let googleAuthView = ButtonFormView(label: getStartedLabel, button: googleButton)
+        
+        self.view.addSubview(googleAuthView)
+        
+        NSLayoutConstraint.activate([
+            googleAuthView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24),
+            googleAuthView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24),
+//            googleAuthView.heightAnchor.constraint(equalToConstant: 90),
+//            googleAuthView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
+        ])
+        
+        let appleAuthView = ButtonFormView(label: UILabel(), button: appleButton)
+        
+        self.view.addSubview(appleAuthView)
+        
+        NSLayoutConstraint.activate([
+            appleAuthView.topAnchor.constraint(equalTo: googleAuthView.bottomAnchor, constant: 0),
+            appleAuthView.leadingAnchor.constraint(equalTo: googleAuthView.leadingAnchor),
+            appleAuthView.trailingAnchor.constraint(equalTo: googleAuthView.trailingAnchor),
+            appleAuthView.heightAnchor.constraint(equalToConstant: 90)
+        ])
+        
+        
+        let registrationView = ButtonFormView(label: registrationLabel, button: registrationButton)
+        
+        self.view.addSubview(registrationView)
+        
+        NSLayoutConstraint.activate([
+            registrationView.topAnchor.constraint(equalTo: appleAuthView.bottomAnchor, constant: 30),
+            registrationView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
+            registrationView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
+        ])
+        
+        let loginView = ButtonFormView(label: loginLabel, button: loginButton)
+        
+        self.view.addSubview(loginView)
+        
+        NSLayoutConstraint.activate([
+             loginView.topAnchor.constraint(equalTo: registrationView.bottomAnchor, constant: 30),
+             loginView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
+             loginView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
+             loginView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60)
+         ])
         
         self.view.addSubview(logoImageView)
         
@@ -78,15 +132,38 @@ final class AuthViewController: UIViewController {
     
     private func startAnimationImageView() {
         imageCenterXConstraint.isActive = false
-        let x = self.logoLabel.frame.midX + 40
-        let y = self.logoLabel.frame.minY
+        let x = self.logoLabel.frame.midX + 50
+        let y = self.logoLabel.frame.minY - 7
         
-        UIView.animate(withDuration: 0.8) {
+        UIView.animate(withDuration: 0.5, animations: {
             self.activityIndicator.isHidden = true
-            self.logoImageView.frame = CGRect(x: x, y: y, width: 50, height: 50)
-            self.logoImageView.layer.cornerRadius = 25
+            self.logoImageView.frame = CGRect(x: x, y: y, width: 70, height: 70)
+            self.logoImageView.layer.cornerRadius = 35
+            self.logoImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
             self.view.layoutIfNeeded()
+        }) { (finished) in
+            if finished {
+                UIView.animate(withDuration: 0.2) {
+                    self.logoImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }
+            }
         }
+        
+    }
+    
+    @objc private func authWithGoogleClick() {
+        
+    }
+    
+    @objc private func authWithAppleIdClick() {
+         
+    }
+    
+    @objc private func registrationClick() {
+         
+    }
+    
+    @objc private func inputClick() {
         
     }
     

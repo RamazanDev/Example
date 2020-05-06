@@ -29,6 +29,13 @@
 		4DB00D0C2460DAB600FCC349 /* SF UI Display Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DB00D032460DAB600FCC349 /* SF UI Display Regular.ttf */; };
 		4DB00D0D2460DAB600FCC349 /* sf-ui-display-light-58646b33e0551.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4DB00D042460DAB600FCC349 /* sf-ui-display-light-58646b33e0551.otf */; };
 		4DB00D0E2460DAB600FCC349 /* sf-ui-display-ultralight-58646b19bf205.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4DB00D052460DAB600FCC349 /* sf-ui-display-ultralight-58646b19bf205.otf */; };
+		4DB00D1224617BDD00FCC349 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1124617BDD00FCC349 /* UIButton + Extensions.swift */; };
+		4DB00D1424617C5600FCC349 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1324617C5600FCC349 /* UILabel + Extensions.swift */; };
+		4DB00D1624617C9500FCC349 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1524617C9500FCC349 /* UIColor + Extensions.swift */; };
+		4DB00D1824617D2E00FCC349 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1724617D2E00FCC349 /* UIStackView + Extensions.swift */; };
+		4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1A24617EA100FCC349 /* BottomFromView.swift */; };
+		4DB00D1D2461A3E800FCC349 /* AuthViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1C2461A3E800FCC349 /* AuthViewPresenter.swift */; };
+		4DB00D1F2461A3FF00FCC349 /* AuthViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1E2461A3FF00FCC349 /* AuthViewOutput.swift */; };
 		9FBFB476DD628E9DE9827BEB /* Pods_IGid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +66,13 @@
 		4DB00D032460DAB600FCC349 /* SF UI Display Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF UI Display Regular.ttf"; sourceTree = "<group>"; };
 		4DB00D042460DAB600FCC349 /* sf-ui-display-light-58646b33e0551.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-light-58646b33e0551.otf"; sourceTree = "<group>"; };
 		4DB00D052460DAB600FCC349 /* sf-ui-display-ultralight-58646b19bf205.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-ultralight-58646b19bf205.otf"; sourceTree = "<group>"; };
+		4DB00D1124617BDD00FCC349 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		4DB00D1324617C5600FCC349 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
+		4DB00D1524617C9500FCC349 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		4DB00D1724617D2E00FCC349 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		4DB00D1A24617EA100FCC349 /* BottomFromView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomFromView.swift; sourceTree = "<group>"; };
+		4DB00D1C2461A3E800FCC349 /* AuthViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewPresenter.swift; sourceTree = "<group>"; };
+		4DB00D1E2461A3FF00FCC349 /* AuthViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewOutput.swift; sourceTree = "<group>"; };
 		B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC73B8CFFBF7E70889B0299F /* Pods-IGid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGid.release.xcconfig"; path = "Target Support Files/Pods-IGid/Pods-IGid.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +123,7 @@
 				4DB00CD7245CB75200FCC349 /* Modules */,
 				4DB00CF12460481300FCC349 /* Common */,
 				4DB00CE0245CCDDB00FCC349 /* BaseClasses */,
+				4DB00D0F24617BBD00FCC349 /* Extensions */,
 				4DB00CF624604B2900FCC349 /* Resources */,
 				4DB00CD1245CB46100FCC349 /* Info.plist */,
 				4DB00CE6245D91D700FCC349 /* GoogleService-Info.plist */,
@@ -174,6 +189,8 @@
 		4DB00CDD245CC01A00FCC349 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				4DB00D1C2461A3E800FCC349 /* AuthViewPresenter.swift */,
+				4DB00D1E2461A3FF00FCC349 /* AuthViewOutput.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -231,6 +248,7 @@
 		4DB00CF12460481300FCC349 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4DB00D1924617E8E00FCC349 /* UIElements */,
 				4DB00CF22460481900FCC349 /* Constants */,
 			);
 			path = Common;
@@ -275,6 +293,33 @@
 				4DB00D052460DAB600FCC349 /* sf-ui-display-ultralight-58646b19bf205.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4DB00D0F24617BBD00FCC349 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DB00D1024617BC700FCC349 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DB00D1024617BC700FCC349 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4DB00D1124617BDD00FCC349 /* UIButton + Extensions.swift */,
+				4DB00D1324617C5600FCC349 /* UILabel + Extensions.swift */,
+				4DB00D1524617C9500FCC349 /* UIColor + Extensions.swift */,
+				4DB00D1724617D2E00FCC349 /* UIStackView + Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		4DB00D1924617E8E00FCC349 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				4DB00D1A24617EA100FCC349 /* BottomFromView.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 		F0E05CF330531A7107E1F2BE /* Frameworks */ = {
@@ -429,12 +474,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB00D1224617BDD00FCC349 /* UIButton + Extensions.swift in Sources */,
 				4DB00CC4245CB45E00FCC349 /* AppDelegate.swift in Sources */,
+				4DB00D1424617C5600FCC349 /* UILabel + Extensions.swift in Sources */,
+				4DB00D1624617C9500FCC349 /* UIColor + Extensions.swift in Sources */,
 				4DB00CDF245CC0D300FCC349 /* AuthViewController.swift in Sources */,
+				4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */,
 				4DB00CF824604B3C00FCC349 /* R.generated.swift in Sources */,
+				4DB00D1D2461A3E800FCC349 /* AuthViewPresenter.swift in Sources */,
 				4DB00CF42460482900FCC349 /* Aliases.swift in Sources */,
 				4DB00CC6245CB45E00FCC349 /* SceneDelegate.swift in Sources */,
+				4DB00D1F2461A3FF00FCC349 /* AuthViewOutput.swift in Sources */,
 				4DB00CEA245DA51800FCC349 /* AuthAssembly.swift in Sources */,
+				4DB00D1824617D2E00FCC349 /* UIStackView + Extensions.swift in Sources */,
 				4DB00CE2245CCDEB00FCC349 /* BaseCoordinator.swift in Sources */,
 				4DB00CF0246045D100FCC349 /* LaunchViewController.swift in Sources */,
 				4DB00CFB24604BBE00FCC349 /* LaunchAssembly.swift in Sources */,
