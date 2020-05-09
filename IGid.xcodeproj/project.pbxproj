@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D667113246602F7003E1012 /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D667112246602F7003E1012 /* OneLineTextField.swift */; };
+		4D66711D2466C571003E1012 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D66711C2466C571003E1012 /* AuthService.swift */; };
 		4DB00CC4245CB45E00FCC349 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00CC3245CB45E00FCC349 /* AppDelegate.swift */; };
 		4DB00CC6245CB45E00FCC349 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00CC5245CB45E00FCC349 /* SceneDelegate.swift */; };
 		4DB00CCD245CB46100FCC349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DB00CCC245CB46100FCC349 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		0833EE38565F50B634819D37 /* Pods-IGid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGid.debug.xcconfig"; path = "Target Support Files/Pods-IGid/Pods-IGid.debug.xcconfig"; sourceTree = "<group>"; };
+		4D667112246602F7003E1012 /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
+		4D66711C2466C571003E1012 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4DB00CC0245CB45E00FCC349 /* IGid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB00CC3245CB45E00FCC349 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DB00CC5245CB45E00FCC349 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4D66711B2466C565003E1012 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4D66711C2466C571003E1012 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		4DB00CB7245CB45E00FCC349 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 		4DB00CC2245CB45E00FCC349 /* IGid */ = {
 			isa = PBXGroup;
 			children = (
+				4D66711B2466C565003E1012 /* Services */,
 				4DB00CD8245CB76900FCC349 /* Application */,
 				4DB00CD7245CB75200FCC349 /* Modules */,
 				4DB00CF12460481300FCC349 /* Common */,
@@ -318,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				4DB00D1A24617EA100FCC349 /* BottomFromView.swift */,
+				4D667112246602F7003E1012 /* OneLineTextField.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -343,6 +357,7 @@
 				4DB00CBD245CB45E00FCC349 /* Frameworks */,
 				4DB00CBE245CB45E00FCC349 /* Resources */,
 				DF49F919BBC2E71F1B330C3B /* [CP] Embed Pods Frameworks */,
+				FA38C8BAED7518874E97BB47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -467,6 +482,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IGid/Pods-IGid-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FA38C8BAED7518874E97BB47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IGid/Pods-IGid-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IGid/Pods-IGid-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IGid/Pods-IGid-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -480,12 +512,14 @@
 				4DB00D1624617C9500FCC349 /* UIColor + Extensions.swift in Sources */,
 				4DB00CDF245CC0D300FCC349 /* AuthViewController.swift in Sources */,
 				4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */,
+				4D66711D2466C571003E1012 /* AuthService.swift in Sources */,
 				4DB00CF824604B3C00FCC349 /* R.generated.swift in Sources */,
 				4DB00D1D2461A3E800FCC349 /* AuthViewPresenter.swift in Sources */,
 				4DB00CF42460482900FCC349 /* Aliases.swift in Sources */,
 				4DB00CC6245CB45E00FCC349 /* SceneDelegate.swift in Sources */,
 				4DB00D1F2461A3FF00FCC349 /* AuthViewOutput.swift in Sources */,
 				4DB00CEA245DA51800FCC349 /* AuthAssembly.swift in Sources */,
+				4D667113246602F7003E1012 /* OneLineTextField.swift in Sources */,
 				4DB00D1824617D2E00FCC349 /* UIStackView + Extensions.swift in Sources */,
 				4DB00CE2245CCDEB00FCC349 /* BaseCoordinator.swift in Sources */,
 				4DB00CF0246045D100FCC349 /* LaunchViewController.swift in Sources */,

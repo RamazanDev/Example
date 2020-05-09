@@ -6,7 +6,9 @@ target 'IGid' do
   use_frameworks!
 
   # Pods for IGid
-pod 'Firebase/Analytics'	
+pod 'Firebase/Analytics'
+pod 'FirebaseUI/Auth'
+pod 'GoogleSignIn'	
 pod 'R.swift'
 
 end

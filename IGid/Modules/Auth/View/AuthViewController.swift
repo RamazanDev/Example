@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 final class AuthViewController: UIViewController {
     
@@ -35,6 +36,7 @@ final class AuthViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupSubviews()
+        GIDSignIn.sharedInstance()?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +69,7 @@ final class AuthViewController: UIViewController {
             googleAuthView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24),
             googleAuthView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24),
 //            googleAuthView.heightAnchor.constraint(equalToConstant: 90),
-//            googleAuthView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
+            googleAuthView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
         ])
         
         let appleAuthView = ButtonFormView(label: UILabel(), button: appleButton)
@@ -82,29 +84,29 @@ final class AuthViewController: UIViewController {
         ])
         
         
-        let registrationView = ButtonFormView(label: registrationLabel, button: registrationButton)
-        
-        self.view.addSubview(registrationView)
-        
-        NSLayoutConstraint.activate([
-            registrationView.topAnchor.constraint(equalTo: appleAuthView.bottomAnchor, constant: 30),
-            registrationView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
-            registrationView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
-        ])
-        
-        let loginView = ButtonFormView(label: loginLabel, button: loginButton)
-        
-        self.view.addSubview(loginView)
-        
-        NSLayoutConstraint.activate([
-             loginView.topAnchor.constraint(equalTo: registrationView.bottomAnchor, constant: 30),
-             loginView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
-             loginView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
-             loginView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60)
-         ])
-        
+//        let registrationView = ButtonFormView(label: registrationLabel, button: registrationButton)
+//
+//        self.view.addSubview(registrationView)
+//
+//        NSLayoutConstraint.activate([
+//            registrationView.topAnchor.constraint(equalTo: appleAuthView.bottomAnchor, constant: 30),
+//            registrationView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
+//            registrationView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
+//        ])
+//
+//        let loginView = ButtonFormView(label: loginLabel, button: loginButton)
+//
+//        self.view.addSubview(loginView)
+//
+//        NSLayoutConstraint.activate([
+//             loginView.topAnchor.constraint(equalTo: registrationView.bottomAnchor, constant: 30),
+//             loginView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
+//             loginView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
+//             loginView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60)
+//         ])
+//
         self.view.addSubview(logoImageView)
-        
+
         logoImageView.clipsToBounds = true
         logoImageView.layer.cornerRadius = 0
         logoImageView.contentMode = .scaleAspectFill
@@ -128,6 +130,8 @@ final class AuthViewController: UIViewController {
         activityIndicator.heightAnchor.constraint(equalToConstant: 60).isActive = true
         activityIndicator.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
+        
+        googleButton.addTarget(self, action: #selector(authWithGoogleClick), for: .touchUpInside)
     }
     
     private func startAnimationImageView() {
@@ -152,7 +156,8 @@ final class AuthViewController: UIViewController {
     }
     
     @objc private func authWithGoogleClick() {
-        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
     @objc private func authWithAppleIdClick() {
@@ -160,11 +165,26 @@ final class AuthViewController: UIViewController {
     }
     
     @objc private func registrationClick() {
-         
+
     }
     
     @objc private func inputClick() {
         
+    }
+    
+}
+
+extension AuthViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        AuthService.shared.loginWithGoogle(user: user, error: error) { (result) in
+            switch result {
+            case .success(let user):
+                print(user.displayName)
+                print(user.email)
+            case .failure(let error):
+                dump(error)
+            }
+        }
     }
     
 }
