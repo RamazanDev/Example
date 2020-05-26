@@ -9,5 +9,5 @@
 import Rswift
 
 typealias Font = R.font
-//typealias Localized = R.string.localized
+typealias Localized = R.string.localized
 typealias Images = R.image

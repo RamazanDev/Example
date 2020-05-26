@@ -273,19 +273,56 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `AppleLogo`.
     static let appleLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "AppleLogo")
+    /// Image `ArrowIcon`.
+    static let arrowIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ArrowIcon")
+    /// Image `CarIcon`.
+    static let carIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CarIcon")
+    /// Image `GoOutIcon`.
+    static let goOutIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "GoOutIcon")
     /// Image `GoogleLogo`.
     static let googleLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "GoogleLogo")
     /// Image `LaunchScreenImage`.
     static let launchScreenImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchScreenImage")
+    /// Image `PlacesListIconTabBarSelected`.
+    static let placesListIconTabBarSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "PlacesListIconTabBarSelected")
+    /// Image `PlacesListIconTabBarUnSelectred`.
+    static let placesListIconTabBarUnSelectred = Rswift.ImageResource(bundle: R.hostingBundle, name: "PlacesListIconTabBarUnSelectred")
+    /// Image `ProfileIconTabBarSelected`.
+    static let profileIconTabBarSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileIconTabBarSelected")
+    /// Image `ProfileIconTabBarUnSelected`.
+    static let profileIconTabBarUnSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileIconTabBarUnSelected")
+    /// Image `WishIcon`.
+    static let wishIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "WishIcon")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "AppleLogo", bundle: ..., traitCollection: ...)`
     static func appleLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.appleLogo, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ArrowIcon", bundle: ..., traitCollection: ...)`
+    static func arrowIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.arrowIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "CarIcon", bundle: ..., traitCollection: ...)`
+    static func carIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.carIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "GoOutIcon", bundle: ..., traitCollection: ...)`
+    static func goOutIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.goOutIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -302,6 +339,142 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.launchScreenImage, compatibleWith: traitCollection)
     }
     #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "PlacesListIconTabBarSelected", bundle: ..., traitCollection: ...)`
+    static func placesListIconTabBarSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placesListIconTabBarSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "PlacesListIconTabBarUnSelectred", bundle: ..., traitCollection: ...)`
+    static func placesListIconTabBarUnSelectred(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placesListIconTabBarUnSelectred, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ProfileIconTabBarSelected", bundle: ..., traitCollection: ...)`
+    static func profileIconTabBarSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileIconTabBarSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ProfileIconTabBarUnSelected", bundle: ..., traitCollection: ...)`
+    static func profileIconTabBarUnSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileIconTabBarUnSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "WishIcon", bundle: ..., traitCollection: ...)`
+    static func wishIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wishIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localized` struct is generated, and contains static references to 6 localization keys.
+    struct localized {
+      /// Value: Выйти
+      static let profileGoOut = Rswift.StringResource(key: "profile.goOut", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Избранные поездки
+      static let profileWishList = Rswift.StringResource(key: "profile.wishList", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Места
+      static let tabBarPlaces = Rswift.StringResource(key: "tabBar.places", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Назад
+      static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Предложить поездку
+      static let profileAddPlace = Rswift.StringResource(key: "profile.addPlace", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Профиль
+      static let tabBarProfile = Rswift.StringResource(key: "tabBar.profile", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Выйти
+      static func profileGoOut(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile.goOut", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "profile.goOut"
+        }
+
+        return NSLocalizedString("profile.goOut", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Избранные поездки
+      static func profileWishList(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile.wishList", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "profile.wishList"
+        }
+
+        return NSLocalizedString("profile.wishList", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Места
+      static func tabBarPlaces(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tabBar.places", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "tabBar.places"
+        }
+
+        return NSLocalizedString("tabBar.places", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Назад
+      static func cancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("cancel", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "cancel"
+        }
+
+        return NSLocalizedString("cancel", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Предложить поездку
+      static func profileAddPlace(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profile.addPlace", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "profile.addPlace"
+        }
+
+        return NSLocalizedString("profile.addPlace", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Профиль
+      static func tabBarProfile(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("tabBar.profile", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "tabBar.profile"
+        }
+
+        return NSLocalizedString("tabBar.profile", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
 
     fileprivate init() {}
   }

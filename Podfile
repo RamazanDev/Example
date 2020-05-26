@@ -8,6 +8,7 @@ target 'IGid' do
   # Pods for IGid
 pod 'Firebase/Analytics'
 pod 'FirebaseUI/Auth'
+pod 'Firebase/Firestore'
 pod 'GoogleSignIn'	
 pod 'R.swift'
 

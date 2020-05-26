@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class LaunchAssembly {
+final class LaunchAssembly: Assembly {
     
-    static func assembly() -> UIViewController {
+    static func assembleModule() -> UIViewController {
         let view = LaunchViewController()
         
         return view

@@ -8,10 +8,25 @@
 
 import UIKit
 
-final class AuthAssembly {
+final class AuthAssembly: Assembly {
     
-    static func assembly() -> UIViewController {
+    static func assembleModule() -> UIViewController {
         let view = AuthViewController()
+        let preseter = AuthPresenter()
+        
+        view.presenter = preseter
+        preseter.view = view
+        
+        let authService = CompositionFactory.shared.service.authService
+        let userService = CompositionFactory.shared.service.userService
+        let interactor = AuthInteractor(authService: authService, userService: userService)
+        
+        preseter.interactor = interactor
+        interactor.presenter = preseter
+        
+        let router = AuthRouter(transition: view)
+        
+        preseter.router = router
         
         let nav = UINavigationController()
         nav.viewControllers = [view]

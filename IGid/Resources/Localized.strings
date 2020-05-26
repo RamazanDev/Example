@@ -1,0 +1,22 @@
+/* 
+  Localized.strings
+  IGid
+
+  Created by Магомедов Рамазан on 24.05.2020.
+  Copyright © 2020 Магомедов Рамазан. All rights reserved.
+*/
+
+// MARK: - Shared
+
+"cancel" = "Назад";
+
+// MARK: - TabBar
+
+"tabBar.places" = "Места";
+"tabBar.profile" = "Профиль";
+
+// MARK: - Profile
+
+"profile.wishList" = "Избранные поездки";
+"profile.addPlace" = "Предложить поездку";
+"profile.goOut" = "Выйти";

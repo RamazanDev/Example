@@ -22,8 +22,20 @@ extension UIColor {
         return #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     }
     
+    static func textBlack() -> UIColor {
+        return #colorLiteral(red: 0.1607843137, green: 0.1882352941, blue: 0.2392156863, alpha: 1)
+    }
+    
     static func textFieldLight() -> UIColor {
         return #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+    }
+    
+    static func backgroundLightGray() -> UIColor {
+        return #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9568627451, alpha: 1)
+    }
+    
+    static func separatorColor() -> UIColor {
+        return #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9490196078, alpha: 1)
     }
     
 }

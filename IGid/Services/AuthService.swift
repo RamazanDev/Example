@@ -9,13 +9,22 @@
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import FirebaseFirestore
 
-final class AuthService {
+protocol AuthService {
+    func loginWithGoogle(user: GIDGoogleUser!, error: Error?, completion: @escaping (Result<User, Error>) -> Void)
+}
+
+final class AuthServiceImp: AuthService {
     
-    static let shared = AuthService()
     private let auth = Auth.auth()
+    private let db = Firestore.firestore()
     
-    func loginWithGoogle(user: GIDGoogleUser!, error: Error!, completion: @escaping (Result<User, Error>) -> Void) {
+    private var usersRef: CollectionReference {
+        return db.collection("users")
+    }
+    
+    func loginWithGoogle(user: GIDGoogleUser!, error: Error?, completion: @escaping (Result<User, Error>) -> Void) {
         if let error = error {
             completion(.failure(error))
             return

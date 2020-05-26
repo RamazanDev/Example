@@ -9,34 +9,65 @@
 import UIKit
 import GoogleSignIn
 
+protocol AuthViewInput: Loadable, AlertPresentable {
+}
+
 final class AuthViewController: UIViewController {
+    
+    // MARK: - Dependecy
+    
+    var presenter: AuthViewOutput?
+    
+    // MARK: - Views
     
     private let logoImageView = UIImageView()
     private let logoLabel = UILabel()
     private let activityIndicator = UIActivityIndicatorView()
     
-    private let getStartedLabel = UILabel(text: "Начните с помощью", font: Font.sfuiDisplayRegular(size: 14))
+    private let getStartedLabel = UILabel(text: "Начните с помощью",
+                                          font: Font.sfuiDisplayRegular(size: 14))
     
-    private let registrationLabel = UILabel(text: "Или зарегистрируйтесь с", font: Font.sfuiDisplayRegular(size: 14))
+    private let registrationLabel = UILabel(text: "Или зарегистрируйтесь с",
+                                            font: Font.sfuiDisplayRegular(size: 14))
     
-    private let loginLabel = UILabel(text: "Уже зарегистрированы?", font: Font.sfuiDisplayRegular(size: 14))
+    private let loginLabel = UILabel(text: "Уже зарегистрированы?",
+                                     font: Font.sfuiDisplayRegular(size: 14))
     
-    private let googleButton = UIButton(title: "Google", titleColor: .black, backgroundColor: UIColor.white, font: Font.sfuiDisplayRegular(size: 16), isShadow: true, cornerRadius: 8, image: Images.googleLogo()!)
+    private let googleButton = UIButton(title: "Google",
+                                        titleColor: .black,
+                                        backgroundColor: UIColor.white,
+                                        font: Font.sfuiDisplayRegular(size: 16),
+                                        isShadow: true, cornerRadius: 8,
+                                        image: Images.googleLogo()!)
     
-    private let appleButton = UIButton(title: "Apple ID", titleColor: .black, backgroundColor: UIColor.white, font: Font.sfuiDisplayRegular(size: 16), isShadow: true, cornerRadius: 8, image: Images.appleLogo()!)
+    private let appleButton = UIButton(title: "Apple ID",
+                                       titleColor: .black,
+                                       backgroundColor: UIColor.white,
+                                       font: Font.sfuiDisplayRegular(size: 16),
+                                       isShadow: true, cornerRadius: 8,
+                                       image: Images.appleLogo()!)
     
-    private let registrationButton = UIButton(title: "Email", titleColor: .white, backgroundColor: UIColor.buttonDark(), font: Font.sfuiDisplayRegular(size: 16), isShadow: false, cornerRadius: 8)
+    private let registrationButton = UIButton(title: "Email",
+                                              titleColor: .white,
+                                              backgroundColor: UIColor.buttonDark(),
+                                              font: Font.sfuiDisplayRegular(size: 16),
+                                              isShadow: false,
+                                              cornerRadius: 8)
     
-    private let loginButton = UIButton(title: "Войти", titleColor: .red, backgroundColor: UIColor.white, font: Font.sfuiDisplayRegular(size: 16), isShadow: true, cornerRadius: 8)
+    private let loginButton = UIButton(title: "Войти",
+                                       titleColor: .red,
+                                       backgroundColor: UIColor.white,
+                                       font: Font.sfuiDisplayRegular(size: 16),
+                                       isShadow: true, cornerRadius: 8)
     
     private var imageCenterXConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.backgroundLightGray()
+        presenter?.viewIsReady()
         setupSubviews()
-        GIDSignIn.sharedInstance()?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +99,6 @@ final class AuthViewController: UIViewController {
         NSLayoutConstraint.activate([
             googleAuthView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24),
             googleAuthView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24),
-//            googleAuthView.heightAnchor.constraint(equalToConstant: 90),
             googleAuthView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
         ])
         
@@ -82,29 +112,7 @@ final class AuthViewController: UIViewController {
             appleAuthView.trailingAnchor.constraint(equalTo: googleAuthView.trailingAnchor),
             appleAuthView.heightAnchor.constraint(equalToConstant: 90)
         ])
-        
-        
-//        let registrationView = ButtonFormView(label: registrationLabel, button: registrationButton)
-//
-//        self.view.addSubview(registrationView)
-//
-//        NSLayoutConstraint.activate([
-//            registrationView.topAnchor.constraint(equalTo: appleAuthView.bottomAnchor, constant: 30),
-//            registrationView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
-//            registrationView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
-//        ])
-//
-//        let loginView = ButtonFormView(label: loginLabel, button: loginButton)
-//
-//        self.view.addSubview(loginView)
-//
-//        NSLayoutConstraint.activate([
-//             loginView.topAnchor.constraint(equalTo: registrationView.bottomAnchor, constant: 30),
-//             loginView.leadingAnchor.constraint(equalTo: appleAuthView.leadingAnchor),
-//             loginView.trailingAnchor.constraint(equalTo: appleAuthView.trailingAnchor),
-//             loginView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60)
-//         ])
-//
+    
         self.view.addSubview(logoImageView)
 
         logoImageView.clipsToBounds = true
@@ -156,8 +164,7 @@ final class AuthViewController: UIViewController {
     }
     
     @objc private func authWithGoogleClick() {
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.signIn()
+        presenter?.googleAuthClick()
     }
     
     @objc private func authWithAppleIdClick() {
@@ -174,17 +181,8 @@ final class AuthViewController: UIViewController {
     
 }
 
-extension AuthViewController: GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        AuthService.shared.loginWithGoogle(user: user, error: error) { (result) in
-            switch result {
-            case .success(let user):
-                print(user.displayName)
-                print(user.email)
-            case .failure(let error):
-                dump(error)
-            }
-        }
+extension AuthViewController: AuthViewInput {
+    func showGoogleAuthDialog() {
+
     }
-    
 }
