@@ -87,6 +87,13 @@
 		F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */; };
 		F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */; };
 		F33C04ED247FE3F000707ADA /* EdgesInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */; };
+		F33C04FD24800BA900707ADA /* PlaceCardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F224800BA900707ADA /* PlaceCardDataProvider.swift */; };
+		F33C04FE24800BA900707ADA /* PlaceCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F324800BA900707ADA /* PlaceCardPresenter.swift */; };
+		F33C04FF24800BA900707ADA /* PlaceCardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F524800BA900707ADA /* PlaceCardAssembly.swift */; };
+		F33C050024800BA900707ADA /* PlaceCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F624800BA900707ADA /* PlaceCardRouter.swift */; };
+		F33C050124800BA900707ADA /* PlaceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F824800BA900707ADA /* PlaceCardViewModel.swift */; };
+		F33C050224800BA900707ADA /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04FA24800BA900707ADA /* PlaceCardViewController.swift */; };
+		F33C050324800BA900707ADA /* PlaceCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04FC24800BA900707ADA /* PlaceCardInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +182,13 @@
 		F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesInsertLabel.swift; sourceTree = "<group>"; };
+		F33C04F224800BA900707ADA /* PlaceCardDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardDataProvider.swift; sourceTree = "<group>"; };
+		F33C04F324800BA900707ADA /* PlaceCardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardPresenter.swift; sourceTree = "<group>"; };
+		F33C04F524800BA900707ADA /* PlaceCardAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardAssembly.swift; sourceTree = "<group>"; };
+		F33C04F624800BA900707ADA /* PlaceCardRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardRouter.swift; sourceTree = "<group>"; };
+		F33C04F824800BA900707ADA /* PlaceCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewModel.swift; sourceTree = "<group>"; };
+		F33C04FA24800BA900707ADA /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
+		F33C04FC24800BA900707ADA /* PlaceCardInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +515,7 @@
 		4DB00CD7245CB75200FCC349 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F33C04EF24800BA900707ADA /* ProfileMenu */,
 				4D3C0B75247D389700B22355 /* Places */,
 				4D3C0B53247AA43400B22355 /* Profile */,
 				4DB00CDA245CB8F100FCC349 /* MainTabBarController */,
@@ -712,6 +727,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F33C04EF24800BA900707ADA /* ProfileMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04F024800BA900707ADA /* Presenter */,
+				F33C04F424800BA900707ADA /* Wireframe */,
+				F33C04F724800BA900707ADA /* Model */,
+				F33C04F924800BA900707ADA /* View */,
+				F33C04FB24800BA900707ADA /* Interactor */,
+			);
+			path = ProfileMenu;
+			sourceTree = "<group>";
+		};
+		F33C04F024800BA900707ADA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04F124800BA900707ADA /* DataProvider */,
+				F33C04F324800BA900707ADA /* PlaceCardPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F33C04F124800BA900707ADA /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04F224800BA900707ADA /* PlaceCardDataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		F33C04F424800BA900707ADA /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04F524800BA900707ADA /* PlaceCardAssembly.swift */,
+				F33C04F624800BA900707ADA /* PlaceCardRouter.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		F33C04F724800BA900707ADA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04F824800BA900707ADA /* PlaceCardViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F33C04F924800BA900707ADA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04FA24800BA900707ADA /* PlaceCardViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F33C04FB24800BA900707ADA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F33C04FC24800BA900707ADA /* PlaceCardInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -890,10 +967,13 @@
 				4D3C0B1C247A72A800B22355 /* ServiceFactory.swift in Sources */,
 				4D3C0B2A247A794400B22355 /* ModuleTransitionHandler.swift in Sources */,
 				4D3C0B25247A78ED00B22355 /* Loadable.swift in Sources */,
+				F33C050224800BA900707ADA /* PlaceCardViewController.swift in Sources */,
+				F33C04FE24800BA900707ADA /* PlaceCardPresenter.swift in Sources */,
 				4DB00CDF245CC0D300FCC349 /* AuthViewController.swift in Sources */,
 				4D3C0B84247D389800B22355 /* PlacesPresenter.swift in Sources */,
 				4D3C0B23247A787900B22355 /* MainTabBarController.swift in Sources */,
 				4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */,
+				F33C04FD24800BA900707ADA /* PlaceCardDataProvider.swift in Sources */,
 				4D3C0B85247D389800B22355 /* PlacesAssembly.swift in Sources */,
 				4D3C0B64247AA43500B22355 /* ProfileMenuRouter.swift in Sources */,
 				4D66711D2466C571003E1012 /* AuthService.swift in Sources */,
@@ -901,18 +981,22 @@
 				F33C04E7247FA35400707ADA /* ShrinkingTableViewCell.swift in Sources */,
 				4DB00CF824604B3C00FCC349 /* R.generated.swift in Sources */,
 				4D3C0B4A247A8ACB00B22355 /* MainTabBarPresenter.swift in Sources */,
+				F33C050324800BA900707ADA /* PlaceCardInteractor.swift in Sources */,
 				4D3C0B44247A7B0800B22355 /* MainRouter.swift in Sources */,
 				4D3C0B93247DA70400B22355 /* UserService.swift in Sources */,
 				4D3C0B95247DB1B600B22355 /* UserError.swift in Sources */,
 				4DB00D1D2461A3E800FCC349 /* AuthPresenter.swift in Sources */,
 				4D3C0B27247A791D00B22355 /* RouterInput.swift in Sources */,
 				4D3C0B62247AA43500B22355 /* ProfileMenuPresenter.swift in Sources */,
+				F33C04FF24800BA900707ADA /* PlaceCardAssembly.swift in Sources */,
 				4D3C0B71247C01AE00B22355 /* UIView + Borders.swift in Sources */,
 				4D3C0B3B247A7A9E00B22355 /* TableCellConfigurator.swift in Sources */,
+				F33C050124800BA900707ADA /* PlaceCardViewModel.swift in Sources */,
 				4DB00CF42460482900FCC349 /* Aliases.swift in Sources */,
 				4D3C0B2E247A798700B22355 /* ViewOutput.swift in Sources */,
 				4DB00CC6245CB45E00FCC349 /* SceneDelegate.swift in Sources */,
 				4DB00CEA245DA51800FCC349 /* AuthAssembly.swift in Sources */,
+				F33C050024800BA900707ADA /* PlaceCardRouter.swift in Sources */,
 				4D667113246602F7003E1012 /* OneLineTextField.swift in Sources */,
 				F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */,
 				4D3C0B67247AA43500B22355 /* ProfileMenuInteractor.swift in Sources */,

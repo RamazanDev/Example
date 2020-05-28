@@ -45,7 +45,6 @@ final class PlacesViewController: UIViewController {
     // MARK: - Drawing
     
     private func setupSubviews() {
-        tableView.bounces = false
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -69,10 +68,14 @@ final class PlacesViewController: UIViewController {
     }
     
     private func updateVisibleLabelPositions() {
-        guard let cells = tableView.visibleCells as? [PlaceCell] else { return }
-        for cell in cells {
-            updateLabelPosition(cell)
+        var placeCells: [PlaceCell] = []
+        
+        for cell in tableView.visibleCells {
+            guard let cell = cell as? PlaceCell else { return }
+            placeCells.append(cell)
         }
+        
+        placeCells.forEach{ updateLabelPosition($0)}
     }
     
 }
@@ -114,6 +117,12 @@ extension PlacesViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateVisibleLabelPositions()
     }
+//    
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.navigationController?.navigationBar.prefersLargeTitles = (velocity.y < 0)
+//        })
+//    }
     
 }
 
