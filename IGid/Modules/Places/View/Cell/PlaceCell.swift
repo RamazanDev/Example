@@ -15,7 +15,9 @@ final class PlaceCell: ShrinkingTableViewCell {
     private let backView = UIView()
     private let placeImageView = UIImageView()
     private let nameLabel = EdgeInsetLabel()
-    private let distanceLabel = EdgeInsetLabel()
+    let distanceLabel = EdgeInsetLabel()
+    
+    var distanceBottomConstraint: NSLayoutConstraint!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -73,15 +75,16 @@ final class PlaceCell: ShrinkingTableViewCell {
         
         backView.addSubview(distanceLabel)
         
+        distanceBottomConstraint = distanceLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -8)
+        distanceBottomConstraint.isActive = true
         NSLayoutConstraint.activate([
-            distanceLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -8),
             distanceLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             
             nameLabel.bottomAnchor.constraint(equalTo: distanceLabel.topAnchor)
         ])
         
-        
     }
+    
 }
 
 extension PlaceCell: Configurable {

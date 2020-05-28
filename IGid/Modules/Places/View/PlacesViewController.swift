@@ -15,25 +15,30 @@ protocol PlacesViewInput: AlertPresentable, Loadable {
 final class PlacesViewController: UIViewController {
     
     // MARK: - Locals
-	
+    
     // MARK: - Properties
     
-	var presenter: PlacesViewOutput?
+    var presenter: PlacesViewOutput?
     
     private let tableView = UITableView()
     
     private var viewModel: PlacesViewModel?
-
+    
     
     // MARK: - Life cycle
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.backgroundLightGray()
         setupSubviews()
         setLargeStyleToNavigationBar()
         self.navigationItem.title = Localized.placesSelectRide()
         presenter?.viewIsReady()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateVisibleLabelPositions()
     }
     
     
@@ -53,6 +58,21 @@ final class PlacesViewController: UIViewController {
         view.addSubview(tableView)
         
         tableView.edgesFromSafeArea(to: self.view)
+    }
+    
+    private func updateLabelPosition(_ cell: PlaceCell) {
+        let point = view.convert(cell.distanceLabel.frame.origin, from: cell.contentView) // 1
+        let ratio = point.y
+        let constraint = -((self.view.bounds.height - ratio) / 27)
+        
+        cell.distanceBottomConstraint.constant = constraint
+    }
+    
+    private func updateVisibleLabelPositions() {
+        guard let cells = tableView.visibleCells as? [PlaceCell] else { return }
+        for cell in cells {
+            updateLabelPosition(cell)
+        }
     }
     
 }
@@ -86,6 +106,15 @@ extension PlacesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.didSelectCell(at: indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard  let tableViewCell = cell as? PlaceCell else { return }
+        updateLabelPosition(tableViewCell)
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateVisibleLabelPositions()
+    }
+    
 }
 
 
