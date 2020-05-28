@@ -123,14 +123,13 @@ extension ProfileCell: Configurable {
     func configure(with model: Model) {
         
         switch model.cornerType {
+            
         case .top:
-            backView.cornerRadius = 8
-            backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             
+            backView.addCorners(radius: 8, corners: [.LeftTop, .RightTop])
         case .bottom:
-            backView.cornerRadius = 8
-            backView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             
+            backView.addCorners(radius: 8, corners: [.LeftBottom, .RightBottom])
         default:
             separatorsViews.forEach{ $0.isHidden = false }
         }

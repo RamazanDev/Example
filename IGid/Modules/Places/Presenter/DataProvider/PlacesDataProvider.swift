@@ -17,14 +17,21 @@ final class PlacesDataProvider: PlacesDataProviderInput {
     
     // MARK: - Typealiases
     
+    typealias placeCellConfigurator = TableCellConfigurator<PlaceCell, PlaceCell.Model>
+    
     // MARK: - PlacesDataProviderInput
     
     func createViewModel() -> PlacesViewModel {
 
         
         var rows: [PlacesViewModel.Row] = []
-
         
+        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
+        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
+        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
+        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
+        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
+
         return PlacesViewModel(rows: rows)
     }
 }

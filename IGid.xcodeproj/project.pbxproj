@@ -83,6 +83,10 @@
 		4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1A24617EA100FCC349 /* BottomFromView.swift */; };
 		4DB00D1D2461A3E800FCC349 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1C2461A3E800FCC349 /* AuthPresenter.swift */; };
 		9FBFB476DD628E9DE9827BEB /* Pods_IGid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */; };
+		F33C04E7247FA35400707ADA /* ShrinkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */; };
+		F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */; };
+		F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */; };
+		F33C04ED247FE3F000707ADA /* EdgesInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +171,10 @@
 		4DB00D1C2461A3E800FCC349 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC73B8CFFBF7E70889B0299F /* Pods-IGid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGid.release.xcconfig"; path = "Target Support Files/Pods-IGid/Pods-IGid.release.xcconfig"; sourceTree = "<group>"; };
+		F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingTableViewCell.swift; sourceTree = "<group>"; };
+		F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCollectionViewCell.swift; sourceTree = "<group>"; };
+		F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesInsertLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -679,6 +687,7 @@
 				4D3C0B70247C01AE00B22355 /* UIView + Borders.swift */,
 				4D3C0B72247C123D00B22355 /* UICollection+Register.swift */,
 				4D3C0B8A247D39A200B22355 /* UIView + Edges.swift */,
+				F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -688,6 +697,9 @@
 			children = (
 				4DB00D1A24617EA100FCC349 /* BottomFromView.swift */,
 				4D667112246602F7003E1012 /* OneLineTextField.swift */,
+				F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */,
+				F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */,
+				F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -886,6 +898,7 @@
 				4D3C0B64247AA43500B22355 /* ProfileMenuRouter.swift in Sources */,
 				4D66711D2466C571003E1012 /* AuthService.swift in Sources */,
 				4D3C0B83247D389800B22355 /* PlacesDataProvider.swift in Sources */,
+				F33C04E7247FA35400707ADA /* ShrinkingTableViewCell.swift in Sources */,
 				4DB00CF824604B3C00FCC349 /* R.generated.swift in Sources */,
 				4D3C0B4A247A8ACB00B22355 /* MainTabBarPresenter.swift in Sources */,
 				4D3C0B44247A7B0800B22355 /* MainRouter.swift in Sources */,
@@ -901,15 +914,18 @@
 				4DB00CC6245CB45E00FCC349 /* SceneDelegate.swift in Sources */,
 				4DB00CEA245DA51800FCC349 /* AuthAssembly.swift in Sources */,
 				4D667113246602F7003E1012 /* OneLineTextField.swift in Sources */,
+				F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */,
 				4D3C0B67247AA43500B22355 /* ProfileMenuInteractor.swift in Sources */,
 				4D3C0B89247D389800B22355 /* PlacesMenuInteractor.swift in Sources */,
 				4D3C0B1E247A72A800B22355 /* CompositionFactory.swift in Sources */,
 				4DB00D1824617D2E00FCC349 /* UIStackView + Extensions.swift in Sources */,
 				4D3C0B88247D389800B22355 /* PlacesViewController.swift in Sources */,
 				4D3C0B1D247A72A800B22355 /* CoreFactory.swift in Sources */,
+				F33C04ED247FE3F000707ADA /* EdgesInsertLabel.swift in Sources */,
 				4D3C0B3F247A7AC600B22355 /* Configurable.swift in Sources */,
 				4D3C0B63247AA43500B22355 /* ProfileMenuAssembly.swift in Sources */,
 				4D3C0B46247A7B3600B22355 /* InterfaceUtils.swift in Sources */,
+				F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */,
 				4D3C0B4D247A9AFC00B22355 /* AuthRouter.swift in Sources */,
 				4D3C0B2C247A795700B22355 /* Assembly.swift in Sources */,
 				4D3C0B87247D389800B22355 /* PlacesViewModel.swift in Sources */,

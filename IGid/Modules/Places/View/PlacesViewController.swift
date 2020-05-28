@@ -29,7 +29,10 @@ final class PlacesViewController: UIViewController {
     
 	override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.backgroundLightGray()
         setupSubviews()
+        setLargeStyleToNavigationBar()
+        self.navigationItem.title = Localized.placesSelectRide()
         presenter?.viewIsReady()
     }
     
@@ -41,12 +44,15 @@ final class PlacesViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(cellTypes: [
             PlaceCell.self
         ])
         
         view.addSubview(tableView)
-        tableView.edges(to: self.view)
+        
+        tableView.edgesFromSafeArea(to: self.view)
     }
     
 }

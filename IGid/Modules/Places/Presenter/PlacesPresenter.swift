@@ -43,6 +43,8 @@ extension PlacesPresenter: PlacesViewOutput {
     // MARK: - BaseViewOutput
     
     func viewIsReady() {
+        let viewModel = dataProvider.createViewModel()
+        view?.update(with: viewModel)
         view?.showLoading()
     }
     

@@ -28,7 +28,10 @@ final class PlacesAssembly: Assembly {
         
         interactor.presenter = presenter
         
-        return view
+        let nav = UINavigationController()
+        nav.viewControllers = [view]
+        
+        return nav
         
     }
 

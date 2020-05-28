@@ -30,7 +30,7 @@ final class ProfileViewController: UIViewController {
     
 	override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        setLargeStyleToNavigationBar()
         setupSubviews()
         self.view.backgroundColor = UIColor.backgroundLightGray()
         presenter?.viewIsReady()
@@ -53,32 +53,7 @@ final class ProfileViewController: UIViewController {
         
         view.addSubview(tableView)
         
-        tableView.edges(to: self.view)
-    }
-    
-    private func setupNavigationBar() {
-        let nav = navigationController?.navigationBar
-        nav?.prefersLargeTitles = true
-        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textBlack()]
-//        navigationItem.largeTitleDisplayMode = .always
-
-        let style = UINavigationBarAppearance()
-        style.configureWithDefaultBackground()
-
-        style.titleTextAttributes = [.font: Font.sfuiDisplayRegular(size: 18)!]
-
-        nav?.standardAppearance = style
-        nav?.compactAppearance = style
-
-
-        //Configure Large Style
-        let largeStyle = UINavigationBarAppearance()
-        largeStyle.configureWithTransparentBackground()
-
-        largeStyle.largeTitleTextAttributes = [.font: Font.sfuiDisplayBold(size: 28)!]
-
-        nav?.scrollEdgeAppearance = largeStyle
-        
+        tableView.edgesFromSafeArea(to: self.view)
     }
     
 }

@@ -54,7 +54,9 @@ extension AuthPresenter: AuthInteractorOutput {
 
 extension AuthPresenter: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        interactor?.authWithGoogle(user: user, error: error)
+        if let user = user {
+            interactor?.authWithGoogle(user: user, error: error)
+        }
     }
 
 }

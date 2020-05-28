@@ -277,8 +277,6 @@ struct R: Rswift.Validatable {
   struct image {
     /// Image `AppleLogo`.
     static let appleLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "AppleLogo")
-    /// Image `ArrowIcon`.
-    static let arrowIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "ArrowIcon")
     /// Image `CarIcon`.
     static let carIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CarIcon")
     /// Image `GoOutIcon`.
@@ -297,18 +295,13 @@ struct R: Rswift.Validatable {
     static let profileIconTabBarUnSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProfileIconTabBarUnSelected")
     /// Image `WishIcon`.
     static let wishIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "WishIcon")
+    /// Image `arrowIcon`.
+    static let arrowIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrowIcon")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "AppleLogo", bundle: ..., traitCollection: ...)`
     static func appleLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.appleLogo, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ArrowIcon", bundle: ..., traitCollection: ...)`
-    static func arrowIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.arrowIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -375,13 +368,22 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "arrowIcon", bundle: ..., traitCollection: ...)`
+    static func arrowIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.arrowIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localized` struct is generated, and contains static references to 6 localization keys.
+    /// This `R.string.localized` struct is generated, and contains static references to 7 localization keys.
     struct localized {
+      /// Value: Выберите поездку
+      static let placesSelectRide = Rswift.StringResource(key: "places.selectRide", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Выйти
       static let profileGoOut = Rswift.StringResource(key: "profile.goOut", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Избранные поездки
@@ -394,6 +396,19 @@ struct R: Rswift.Validatable {
       static let profileAddPlace = Rswift.StringResource(key: "profile.addPlace", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Профиль
       static let tabBarProfile = Rswift.StringResource(key: "tabBar.profile", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Выберите поездку
+      static func placesSelectRide(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("places.selectRide", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "places.selectRide"
+        }
+
+        return NSLocalizedString("places.selectRide", tableName: "Localized", bundle: bundle, comment: "")
+      }
 
       /// Value: Выйти
       static func profileGoOut(preferredLanguages: [String]? = nil) -> String {

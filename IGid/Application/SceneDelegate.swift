@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = AuthAssembly.assembleModule()
+        window?.rootViewController = MainTabBarAssembly.assembleModule()
         window?.makeKeyAndVisible()
     }
 

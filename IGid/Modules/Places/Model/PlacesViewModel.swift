@@ -14,13 +14,13 @@ struct PlacesViewModel {
     
     enum Row {
         
-        case accountInfo(configurator: TableCellConfiguratorProtocol)
+        case place(configurator: TableCellConfiguratorProtocol)
         
         var configurator: TableCellConfiguratorProtocol {
             
             switch self {
                 
-            case let .accountInfo(configurator):
+            case let .place(configurator):
                 
                 return configurator
             }
