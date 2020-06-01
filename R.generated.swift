@@ -380,8 +380,14 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localized` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localized` struct is generated, and contains static references to 11 localization keys.
     struct localized {
+      /// Value: Apple ID
+      static let authAppleID = Rswift.StringResource(key: "auth.appleID", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Google
+      static let authGoogle = Rswift.StringResource(key: "auth.google", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: iGid
+      static let iGid = Rswift.StringResource(key: "iGid", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Выберите поездку
       static let placesSelectRide = Rswift.StringResource(key: "places.selectRide", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Выйти
@@ -392,10 +398,51 @@ struct R: Rswift.Validatable {
       static let tabBarPlaces = Rswift.StringResource(key: "tabBar.places", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Назад
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Начните с помощью
+      static let authGetStartedWith = Rswift.StringResource(key: "auth.getStartedWith", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Предложить поездку
       static let profileAddPlace = Rswift.StringResource(key: "profile.addPlace", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Профиль
       static let tabBarProfile = Rswift.StringResource(key: "tabBar.profile", tableName: "Localized", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Apple ID
+      static func authAppleID(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("auth.appleID", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "auth.appleID"
+        }
+
+        return NSLocalizedString("auth.appleID", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Google
+      static func authGoogle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("auth.google", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "auth.google"
+        }
+
+        return NSLocalizedString("auth.google", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: iGid
+      static func iGid(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("iGid", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "iGid"
+        }
+
+        return NSLocalizedString("iGid", tableName: "Localized", bundle: bundle, comment: "")
+      }
 
       /// Value: Выберите поездку
       static func placesSelectRide(preferredLanguages: [String]? = nil) -> String {
@@ -460,6 +507,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("cancel", tableName: "Localized", bundle: bundle, comment: "")
+      }
+
+      /// Value: Начните с помощью
+      static func authGetStartedWith(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("auth.getStartedWith", tableName: "Localized", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localized", preferredLanguages: preferredLanguages) else {
+          return "auth.getStartedWith"
+        }
+
+        return NSLocalizedString("auth.getStartedWith", tableName: "Localized", bundle: bundle, comment: "")
       }
 
       /// Value: Предложить поездку

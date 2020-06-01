@@ -87,13 +87,16 @@
 		F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */; };
 		F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */; };
 		F33C04ED247FE3F000707ADA /* EdgesInsertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */; };
-		F33C04FD24800BA900707ADA /* PlaceCardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F224800BA900707ADA /* PlaceCardDataProvider.swift */; };
 		F33C04FE24800BA900707ADA /* PlaceCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F324800BA900707ADA /* PlaceCardPresenter.swift */; };
 		F33C04FF24800BA900707ADA /* PlaceCardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F524800BA900707ADA /* PlaceCardAssembly.swift */; };
 		F33C050024800BA900707ADA /* PlaceCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F624800BA900707ADA /* PlaceCardRouter.swift */; };
 		F33C050124800BA900707ADA /* PlaceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04F824800BA900707ADA /* PlaceCardViewModel.swift */; };
 		F33C050224800BA900707ADA /* PlaceCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04FA24800BA900707ADA /* PlaceCardViewController.swift */; };
 		F33C050324800BA900707ADA /* PlaceCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04FC24800BA900707ADA /* PlaceCardInteractor.swift */; };
+		F3BB25D624853B4F000B78A9 /* PlaceCardSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB25D524853B4F000B78A9 /* PlaceCardSliderCell.swift */; };
+		F3BB25D924853E61000B78A9 /* PlaceCardSliderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB25D824853E61000B78A9 /* PlaceCardSliderDataSource.swift */; };
+		F3BB25DB248547DC000B78A9 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB25DA248547DC000B78A9 /* PlaceModel.swift */; };
+		F3C393A024815CFE00BDD89C /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C3939F24815CFE00BDD89C /* PlacesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,13 +185,16 @@
 		F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesInsertLabel.swift; sourceTree = "<group>"; };
-		F33C04F224800BA900707ADA /* PlaceCardDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardDataProvider.swift; sourceTree = "<group>"; };
 		F33C04F324800BA900707ADA /* PlaceCardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardPresenter.swift; sourceTree = "<group>"; };
 		F33C04F524800BA900707ADA /* PlaceCardAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardAssembly.swift; sourceTree = "<group>"; };
 		F33C04F624800BA900707ADA /* PlaceCardRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardRouter.swift; sourceTree = "<group>"; };
 		F33C04F824800BA900707ADA /* PlaceCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewModel.swift; sourceTree = "<group>"; };
 		F33C04FA24800BA900707ADA /* PlaceCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardViewController.swift; sourceTree = "<group>"; };
 		F33C04FC24800BA900707ADA /* PlaceCardInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCardInteractor.swift; sourceTree = "<group>"; };
+		F3BB25D524853B4F000B78A9 /* PlaceCardSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCardSliderCell.swift; sourceTree = "<group>"; };
+		F3BB25D824853E61000B78A9 /* PlaceCardSliderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCardSliderDataSource.swift; sourceTree = "<group>"; };
+		F3BB25DA248547DC000B78A9 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		F3C3939F24815CFE00BDD89C /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +470,7 @@
 			children = (
 				4D3C0B90247D89BC00B22355 /* UserModel.swift */,
 				4D3C0B94247DB1B600B22355 /* UserError.swift */,
+				F3BB25DA248547DC000B78A9 /* PlaceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,6 +480,7 @@
 			children = (
 				4D66711C2466C571003E1012 /* AuthService.swift */,
 				4D3C0B92247DA70400B22355 /* UserService.swift */,
+				F3C3939F24815CFE00BDD89C /* PlacesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -515,7 +523,7 @@
 		4DB00CD7245CB75200FCC349 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F33C04EF24800BA900707ADA /* ProfileMenu */,
+				F33C04EF24800BA900707ADA /* PlaceCard */,
 				4D3C0B75247D389700B22355 /* Places */,
 				4D3C0B53247AA43400B22355 /* Profile */,
 				4DB00CDA245CB8F100FCC349 /* MainTabBarController */,
@@ -727,7 +735,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F33C04EF24800BA900707ADA /* ProfileMenu */ = {
+		F33C04EF24800BA900707ADA /* PlaceCard */ = {
 			isa = PBXGroup;
 			children = (
 				F33C04F024800BA900707ADA /* Presenter */,
@@ -736,24 +744,15 @@
 				F33C04F924800BA900707ADA /* View */,
 				F33C04FB24800BA900707ADA /* Interactor */,
 			);
-			path = ProfileMenu;
+			path = PlaceCard;
 			sourceTree = "<group>";
 		};
 		F33C04F024800BA900707ADA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				F33C04F124800BA900707ADA /* DataProvider */,
 				F33C04F324800BA900707ADA /* PlaceCardPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		F33C04F124800BA900707ADA /* DataProvider */ = {
-			isa = PBXGroup;
-			children = (
-				F33C04F224800BA900707ADA /* PlaceCardDataProvider.swift */,
-			);
-			path = DataProvider;
 			sourceTree = "<group>";
 		};
 		F33C04F424800BA900707ADA /* Wireframe */ = {
@@ -776,6 +775,8 @@
 		F33C04F924800BA900707ADA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3BB25D724853E49000B78A9 /* DataSource */,
+				F3BB25D424853B32000B78A9 /* Cell */,
 				F33C04FA24800BA900707ADA /* PlaceCardViewController.swift */,
 			);
 			path = View;
@@ -787,6 +788,22 @@
 				F33C04FC24800BA900707ADA /* PlaceCardInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F3BB25D424853B32000B78A9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F3BB25D524853B4F000B78A9 /* PlaceCardSliderCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F3BB25D724853E49000B78A9 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F3BB25D824853E61000B78A9 /* PlaceCardSliderDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -965,6 +982,7 @@
 				4D3C0B31247A79CC00B22355 /* AlertPresentable.swift in Sources */,
 				4DB00D1624617C9500FCC349 /* UIColor + Extensions.swift in Sources */,
 				4D3C0B1C247A72A800B22355 /* ServiceFactory.swift in Sources */,
+				F3BB25DB248547DC000B78A9 /* PlaceModel.swift in Sources */,
 				4D3C0B2A247A794400B22355 /* ModuleTransitionHandler.swift in Sources */,
 				4D3C0B25247A78ED00B22355 /* Loadable.swift in Sources */,
 				F33C050224800BA900707ADA /* PlaceCardViewController.swift in Sources */,
@@ -973,7 +991,7 @@
 				4D3C0B84247D389800B22355 /* PlacesPresenter.swift in Sources */,
 				4D3C0B23247A787900B22355 /* MainTabBarController.swift in Sources */,
 				4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */,
-				F33C04FD24800BA900707ADA /* PlaceCardDataProvider.swift in Sources */,
+				F3C393A024815CFE00BDD89C /* PlacesService.swift in Sources */,
 				4D3C0B85247D389800B22355 /* PlacesAssembly.swift in Sources */,
 				4D3C0B64247AA43500B22355 /* ProfileMenuRouter.swift in Sources */,
 				4D66711D2466C571003E1012 /* AuthService.swift in Sources */,
@@ -1010,6 +1028,7 @@
 				4D3C0B63247AA43500B22355 /* ProfileMenuAssembly.swift in Sources */,
 				4D3C0B46247A7B3600B22355 /* InterfaceUtils.swift in Sources */,
 				F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */,
+				F3BB25D924853E61000B78A9 /* PlaceCardSliderDataSource.swift in Sources */,
 				4D3C0B4D247A9AFC00B22355 /* AuthRouter.swift in Sources */,
 				4D3C0B2C247A795700B22355 /* Assembly.swift in Sources */,
 				4D3C0B87247D389800B22355 /* PlacesViewModel.swift in Sources */,
@@ -1018,6 +1037,7 @@
 				4DB00CF0246045D100FCC349 /* LaunchViewController.swift in Sources */,
 				4D3C0B48247A89E800B22355 /* MainTabBarAssembly.swift in Sources */,
 				4D3C0B8E247D3F9800B22355 /* PlaceCell.swift in Sources */,
+				F3BB25D624853B4F000B78A9 /* PlaceCardSliderCell.swift in Sources */,
 				4DB00CFB24604BBE00FCC349 /* LaunchAssembly.swift in Sources */,
 				4D3C0B41247A7ADE00B22355 /* CollectionCellConfigurator.swift in Sources */,
 				4D3C0B61247AA43500B22355 /* ProfileMenuDataProvider.swift in Sources */,

@@ -26,14 +26,6 @@ final class PlaceCardPresenter {
     var interactor: PlaceCardInteractorInput?
     var router: PlaceCardRouterInput?
     
-    private let dataProvider: PlaceCardDataProviderInput
-    
-    
-    // MARK: - Init
-    
-    init(dataProvider: PlaceCardDataProviderInput) {
-        self.dataProvider = dataProvider
-    }
 }
 
 
@@ -43,7 +35,7 @@ extension PlaceCardPresenter: PlaceCardViewOutput {
     // MARK: - BaseViewOutput
     
     func viewIsReady() {
-        view?.showLoading()
+        view?.update(with: PlaceCardViewModel(rows: []))
     }
     
     func didSelectCell(at indexPath: IndexPath) {
@@ -56,4 +48,9 @@ extension PlaceCardPresenter: PlaceCardViewOutput {
 // MARK: - PlaceCardInteractorOutput
 extension PlaceCardPresenter: PlaceCardInteractorOutput {
   
+}
+
+// MARK: - PlaceCardSLiderDataSourceOutput
+extension PlaceCardPresenter: PlaceCardSLiderDataSourceOutput {
+    
 }

@@ -117,13 +117,6 @@ extension PlacesViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateVisibleLabelPositions()
     }
-//    
-//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        UIView.animate(withDuration: 0.5, animations: {
-//            self.navigationController?.navigationBar.prefersLargeTitles = (velocity.y < 0)
-//        })
-//    }
-    
 }
 
 

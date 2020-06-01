@@ -13,14 +13,16 @@ final class PlaceCardAssembly: Assembly {
     static func assembleModule() -> UIViewController {
         
         let view = PlaceCardViewController()
+        let sliderDataSource = PlaceCardSliderDataSource()
         let router = PlaceCardRouter(transition: view)
         
-        let dataProvider = PlaceCardDataProvider()
-        let presenter = PlaceCardPresenter(dataProvider: dataProvider)
-        
+        let presenter = PlaceCardPresenter()
         let interactor = PlaceCardInteractor()
-                
+                        
         view.presenter = presenter
+        
+        view.dataSource = sliderDataSource
+        sliderDataSource.delegate = presenter
         
         presenter.view = view
         presenter.interactor = interactor

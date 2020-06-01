@@ -9,6 +9,7 @@
 // MARK: - Shared
 
 "cancel" = "Назад";
+"iGid" = "iGid";
 
 // MARK: - TabBar
 
@@ -20,6 +21,12 @@
 "profile.wishList" = "Избранные поездки";
 "profile.addPlace" = "Предложить поездку";
 "profile.goOut" = "Выйти";
+
+// MARK: - Auth
+
+"auth.getStartedWith" = "Начните с помощью";
+"auth.google" = "Google";
+"auth.appleID" = "Apple ID";
 
 // MARK: - Places
 

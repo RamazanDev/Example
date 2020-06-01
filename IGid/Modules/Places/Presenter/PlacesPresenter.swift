@@ -49,7 +49,7 @@ extension PlacesPresenter: PlacesViewOutput {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        
+        router?.openPlaceCardModule(model: nil)
     }
     
 }

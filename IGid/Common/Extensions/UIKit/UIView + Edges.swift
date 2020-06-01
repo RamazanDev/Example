@@ -9,23 +9,23 @@
 import UIKit
 
 extension UIView {
-    func edges(to view: UIView, edgesInserts: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
+    func edges(to view: UIView, top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat =  0, right: CGFloat = 0) {
         
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.topAnchor, constant: edgesInserts.top),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -edgesInserts.bottom),
-            leftAnchor.constraint(equalTo: view.leftAnchor, constant: edgesInserts.left),
-            rightAnchor.constraint(equalTo: view.rightAnchor, constant: -edgesInserts.right)
+            topAnchor.constraint(equalTo: view.topAnchor, constant: top),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom),
+            leftAnchor.constraint(equalTo: view.leftAnchor, constant: left),
+            rightAnchor.constraint(equalTo: view.rightAnchor, constant: -right)
         ])
     }
     
-    func edgesFromSafeArea(to view: UIView, edgesInserts: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
+    func edgesFromSafeArea(to view: UIView,top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat =  0, right: CGFloat =  0) {
         
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgesInserts.top),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -edgesInserts.bottom),
-            leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: edgesInserts.left),
-            rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -edgesInserts.right)
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: top),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bottom),
+            leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: left),
+            rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -right)
         ])
     }
 }

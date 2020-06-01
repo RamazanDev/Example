@@ -37,7 +37,7 @@ final class PlaceCell: ShrinkingTableViewCell {
         
         self.addSubview(backView)
         
-        backView.edges(to: self, edgesInserts: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
+        backView.edges(to: self, top: 8, left: 16, bottom: 8, right: 16)
         backView.heightAnchor.constraint(equalToConstant: InterfaceUtils.screenHeight / 3.5).isActive = true
         
         

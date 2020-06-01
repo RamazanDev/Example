@@ -24,41 +24,22 @@ final class AuthViewController: UIViewController {
     private let logoLabel = UILabel()
     private let activityIndicator = UIActivityIndicatorView()
     
-    private let getStartedLabel = UILabel(text: "Начните с помощью",
+    private let getStartedLabel = UILabel(text: Localized.authGetStartedWith(),
                                           font: Font.sfuiDisplayRegular(size: 14))
     
-    private let registrationLabel = UILabel(text: "Или зарегистрируйтесь с",
-                                            font: Font.sfuiDisplayRegular(size: 14))
-    
-    private let loginLabel = UILabel(text: "Уже зарегистрированы?",
-                                     font: Font.sfuiDisplayRegular(size: 14))
-    
-    private let googleButton = UIButton(title: "Google",
+    private let googleButton = UIButton(title: Localized.authGoogle(),
                                         titleColor: .black,
                                         backgroundColor: UIColor.white,
                                         font: Font.sfuiDisplayRegular(size: 16),
                                         isShadow: true, cornerRadius: 8,
                                         image: Images.googleLogo()!)
     
-    private let appleButton = UIButton(title: "Apple ID",
+    private let appleButton = UIButton(title: Localized.authAppleID(),
                                        titleColor: .black,
                                        backgroundColor: UIColor.white,
                                        font: Font.sfuiDisplayRegular(size: 16),
                                        isShadow: true, cornerRadius: 8,
                                        image: Images.appleLogo()!)
-    
-    private let registrationButton = UIButton(title: "Email",
-                                              titleColor: .white,
-                                              backgroundColor: UIColor.buttonDark(),
-                                              font: Font.sfuiDisplayRegular(size: 16),
-                                              isShadow: false,
-                                              cornerRadius: 8)
-    
-    private let loginButton = UIButton(title: "Войти",
-                                       titleColor: .red,
-                                       backgroundColor: UIColor.white,
-                                       font: Font.sfuiDisplayRegular(size: 16),
-                                       isShadow: true, cornerRadius: 8)
     
     private var imageCenterXConstraint: NSLayoutConstraint!
     
@@ -69,7 +50,7 @@ final class AuthViewController: UIViewController {
         presenter?.viewIsReady()
         setupSubviews()
     }
-    
+     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -85,7 +66,7 @@ final class AuthViewController: UIViewController {
         self.view.addSubview(logoLabel)
         
         logoLabel.font = Font.sfuiDisplayMedium(size: 48)!
-        logoLabel.text = "iGid"
+        logoLabel.text = Localized.iGid()
         logoLabel.textColor = .black
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
         

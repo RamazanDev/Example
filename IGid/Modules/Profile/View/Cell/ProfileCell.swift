@@ -35,7 +35,7 @@ final class ProfileCell: UITableViewCell {
         backView.backgroundColor = .white
         
         addSubview(backView)
-        backView.edges(to: self, edgesInserts: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+        backView.edges(to: self, left: 16, right: 16)
         
         iconImageView.contentMode = .scaleAspectFill
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
