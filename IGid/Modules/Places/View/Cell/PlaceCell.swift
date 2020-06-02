@@ -55,7 +55,7 @@ final class PlaceCell: ShrinkingTableViewCell {
             $0.textColor = UIColor.textFieldLight()
             $0.numberOfLines = 1
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+            $0.backgroundColor = UIColor.blackWithAlpha()
             $0.layer.masksToBounds = true
         }
         

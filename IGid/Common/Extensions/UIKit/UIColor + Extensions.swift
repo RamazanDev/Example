@@ -38,4 +38,8 @@ extension UIColor {
         return #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9490196078, alpha: 1)
     }
     
+    static func blackWithAlpha(alpha: CGFloat = 0.55) -> UIColor {
+        return UIColor.black.withAlphaComponent(alpha)
+    }
+    
 }

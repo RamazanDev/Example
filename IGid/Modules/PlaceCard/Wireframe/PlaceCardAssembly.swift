@@ -30,6 +30,8 @@ final class PlaceCardAssembly: Assembly {
         
         interactor.presenter = presenter
         
+        view.modalPresentationStyle = .overFullScreen
+        
         return view
         
     }

@@ -273,7 +273,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 16 images.
   struct image {
     /// Image `AppleLogo`.
     static let appleLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "AppleLogo")
@@ -297,6 +297,16 @@ struct R: Rswift.Validatable {
     static let wishIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "WishIcon")
     /// Image `arrowIcon`.
     static let arrowIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrowIcon")
+    /// Image `compasIcon`.
+    static let compasIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "compasIcon")
+    /// Image `selectedHeart`.
+    static let selectedHeart = Rswift.ImageResource(bundle: R.hostingBundle, name: "selectedHeart")
+    /// Image `unSelectedHeart`.
+    static let unSelectedHeart = Rswift.ImageResource(bundle: R.hostingBundle, name: "unSelectedHeart")
+    /// Image `xMarkIcon`.
+    static let xMarkIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "xMarkIcon")
+    /// Image `youtubeIcon`.
+    static let youtubeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "youtubeIcon")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "AppleLogo", bundle: ..., traitCollection: ...)`
@@ -372,6 +382,41 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "arrowIcon", bundle: ..., traitCollection: ...)`
     static func arrowIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.arrowIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "compasIcon", bundle: ..., traitCollection: ...)`
+    static func compasIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.compasIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "selectedHeart", bundle: ..., traitCollection: ...)`
+    static func selectedHeart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.selectedHeart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "unSelectedHeart", bundle: ..., traitCollection: ...)`
+    static func unSelectedHeart(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unSelectedHeart, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "xMarkIcon", bundle: ..., traitCollection: ...)`
+    static func xMarkIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.xMarkIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "youtubeIcon", bundle: ..., traitCollection: ...)`
+    static func youtubeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.youtubeIcon, compatibleWith: traitCollection)
     }
     #endif
 

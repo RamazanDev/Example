@@ -10,6 +10,7 @@ import Foundation
 
 protocol PlaceCardViewOutput: ViewOutput {
     func didSelectCell(at indexPath: IndexPath)
+    func closeButtonCLick()
 }
 
 protocol PlaceCardInteractorOutput: class {
@@ -40,6 +41,10 @@ extension PlaceCardPresenter: PlaceCardViewOutput {
     
     func didSelectCell(at indexPath: IndexPath) {
         
+    }
+    
+    func closeButtonCLick() {
+        router?.close()
     }
     
 }

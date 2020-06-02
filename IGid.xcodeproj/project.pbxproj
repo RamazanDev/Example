@@ -83,6 +83,7 @@
 		4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1A24617EA100FCC349 /* BottomFromView.swift */; };
 		4DB00D1D2461A3E800FCC349 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1C2461A3E800FCC349 /* AuthPresenter.swift */; };
 		9FBFB476DD628E9DE9827BEB /* Pods_IGid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */; };
+		F3079E162486781A0047E37A /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3079E152486781A0047E37A /* SnappingCollectionViewLayout.swift */; };
 		F33C04E7247FA35400707ADA /* ShrinkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */; };
 		F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */; };
 		F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */; };
@@ -181,6 +182,7 @@
 		4DB00D1C2461A3E800FCC349 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC73B8CFFBF7E70889B0299F /* Pods-IGid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGid.release.xcconfig"; path = "Target Support Files/Pods-IGid/Pods-IGid.release.xcconfig"; sourceTree = "<group>"; };
+		F3079E152486781A0047E37A /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingTableViewCell.swift; sourceTree = "<group>"; };
 		F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */,
 				F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */,
 				F33C04EC247FE3F000707ADA /* EdgesInsertLabel.swift */,
+				F3079E152486781A0047E37A /* SnappingCollectionViewLayout.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3C0B73247C123D00B22355 /* UICollection+Register.swift in Sources */,
+				F3079E162486781A0047E37A /* SnappingCollectionViewLayout.swift in Sources */,
 				4D3C0B86247D389800B22355 /* PlacesRouter.swift in Sources */,
 				4D3C0B33247A79E400B22355 /* AlertAction.swift in Sources */,
 				4D3C0B65247AA43500B22355 /* ProfileMenuViewModel.swift in Sources */,

@@ -16,7 +16,6 @@ final class PlaceCardSliderCell: UICollectionViewCell {
     
     private var parallaxOffset: CGFloat = 0 {
         didSet {
-            print(parallaxOffset)
             imageViewCenterYLayoutConstraint.constant = parallaxOffset
         }
     }
@@ -64,7 +63,7 @@ extension PlaceCardSliderCell: Configurable {
 
         let scaleFactor = 80 / maxVerticalOffset
         
-        parallaxOffset = -offsetFromCenter.x * scaleFactor
+        parallaxOffset = offsetFromCenter.x * scaleFactor
     }
     
 }

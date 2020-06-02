@@ -9,6 +9,8 @@
 import UIKit
 
 protocol PlaceCardRouterInput {
+    
+    func close()
 
 }
 
@@ -30,5 +32,8 @@ final class PlaceCardRouter {
 
 // MARK: - PlaceCardRouterInput
 extension PlaceCardRouter: PlaceCardRouterInput {
-   
+    func close() {
+        transition?.closeModule(nil)
+    }
+    
 }
