@@ -9,8 +9,8 @@
 import Foundation
 
 protocol PlaceCardViewOutput: ViewOutput {
-    func didSelectCell(at indexPath: IndexPath)
     func closeButtonCLick()
+    func roadButtonClick()
 }
 
 protocol PlaceCardInteractorOutput: class {
@@ -39,12 +39,12 @@ extension PlaceCardPresenter: PlaceCardViewOutput {
         view?.update(with: PlaceCardViewModel(rows: []))
     }
     
-    func didSelectCell(at indexPath: IndexPath) {
-        
-    }
-    
     func closeButtonCLick() {
         router?.close()
+    }
+    
+    func roadButtonClick() {
+        router?.openMapModule()
     }
     
 }

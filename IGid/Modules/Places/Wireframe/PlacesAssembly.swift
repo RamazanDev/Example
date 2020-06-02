@@ -18,7 +18,8 @@ final class PlacesAssembly: Assembly {
         let dataProvider = PlacesDataProvider()
         let presenter = PlacesPresenter(dataProvider: dataProvider)
         
-        let interactor = PlacesInteractor()
+        let placesService = CompositionFactory.shared.service.placesService
+        let interactor = PlacesInteractor(placesService: placesService)
                 
         view.presenter = presenter
         

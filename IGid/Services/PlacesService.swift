@@ -8,11 +8,10 @@
 
 import Firebase
 import FirebaseAuth
-import GoogleSignIn
 import FirebaseFirestore
 
 protocol PlacesService {
-    func loginWithGoogle(user: GIDGoogleUser!, error: Error?, completion: @escaping (Result<User, Error>) -> Void)
+    func getAllPlaces()
 }
 
 final class PlacesServiceImp: PlacesService {
@@ -20,27 +19,18 @@ final class PlacesServiceImp: PlacesService {
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
     
-    private var usersRef: CollectionReference {
-        return db.collection("users")
+    private var placesRef: CollectionReference {
+        return db.collection("places")
     }
     
-    func loginWithGoogle(user: GIDGoogleUser!, error: Error?, completion: @escaping (Result<User, Error>) -> Void) {
-        if let error = error {
-            completion(.failure(error))
-            return
+    func getAllPlaces() {
+        placesRef.getDocuments { (result, error) in
+            print("result")
+            dump(result)
+            print("error")
+            dump(error)
         }
         
-        guard let auth = user.authentication else { return }
-        
-        let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
-        
-        Auth.auth().signIn(with: credential) { (result, error) in
-            guard let result = result else {
-                completion(.failure(error!))
-                return
-            }
-            completion(.success(result.user))
-            
-        }
     }
+    
 }

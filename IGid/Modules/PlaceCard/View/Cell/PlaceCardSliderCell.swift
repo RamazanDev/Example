@@ -61,7 +61,7 @@ extension PlaceCardSliderCell: Configurable {
         let offsetFromCenter = CGPoint(x: center.x - self.center.x, y: center.y - self.center.y)
         let maxVerticalOffset = (bounds.width) + (self.bounds.width)
 
-        let scaleFactor = 80 / maxVerticalOffset
+        let scaleFactor = 90 / maxVerticalOffset
         
         parallaxOffset = offsetFromCenter.x * scaleFactor
     }

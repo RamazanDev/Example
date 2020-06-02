@@ -25,5 +25,11 @@ extension CompositionFactory {
                 return UserServiceImp()
             })
         }
+        
+        var placesService: PlacesService {
+            return unshared( factory: {
+                return PlacesServiceImp()
+            })
+        }
     }
 }

@@ -30,9 +30,11 @@ final class PlaceCardAssembly: Assembly {
         
         interactor.presenter = presenter
         
-        view.modalPresentationStyle = .overFullScreen
+        let nav = UINavigationController()
+        nav.modalPresentationStyle = .overFullScreen
+        nav.viewControllers = [view]
         
-        return view
+        return nav
         
     }
 

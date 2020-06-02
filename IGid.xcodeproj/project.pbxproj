@@ -84,6 +84,10 @@
 		4DB00D1D2461A3E800FCC349 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB00D1C2461A3E800FCC349 /* AuthPresenter.swift */; };
 		9FBFB476DD628E9DE9827BEB /* Pods_IGid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */; };
 		F3079E162486781A0047E37A /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3079E152486781A0047E37A /* SnappingCollectionViewLayout.swift */; };
+		F3079E1B248682750047E37A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3079E1A248682750047E37A /* MapViewController.swift */; };
+		F3079E1E248682AF0047E37A /* MapAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3079E1D248682AF0047E37A /* MapAssembly.swift */; };
+		F3079E21248684060047E37A /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3079E20248684060047E37A /* MapPresenter.swift */; };
+		F3079E23248690C20047E37A /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3079E22248690C20047E37A /* AnnotationModel.swift */; };
 		F33C04E7247FA35400707ADA /* ShrinkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */; };
 		F33C04E9247FA36D00707ADA /* ShrinkingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */; };
 		F33C04EB247FB89100707ADA /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */; };
@@ -183,6 +187,10 @@
 		B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC73B8CFFBF7E70889B0299F /* Pods-IGid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGid.release.xcconfig"; path = "Target Support Files/Pods-IGid/Pods-IGid.release.xcconfig"; sourceTree = "<group>"; };
 		F3079E152486781A0047E37A /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		F3079E1A248682750047E37A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F3079E1D248682AF0047E37A /* MapAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAssembly.swift; sourceTree = "<group>"; };
+		F3079E20248684060047E37A /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		F3079E22248690C20047E37A /* AnnotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationModel.swift; sourceTree = "<group>"; };
 		F33C04E6247FA35400707ADA /* ShrinkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingTableViewCell.swift; sourceTree = "<group>"; };
 		F33C04E8247FA36D00707ADA /* ShrinkingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCollectionViewCell.swift; sourceTree = "<group>"; };
 		F33C04EA247FB89100707ADA /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -473,6 +481,7 @@
 				4D3C0B90247D89BC00B22355 /* UserModel.swift */,
 				4D3C0B94247DB1B600B22355 /* UserError.swift */,
 				F3BB25DA248547DC000B78A9 /* PlaceModel.swift */,
+				F3079E22248690C20047E37A /* AnnotationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -525,6 +534,7 @@
 		4DB00CD7245CB75200FCC349 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F3079E18248682610047E37A /* Map */,
 				F33C04EF24800BA900707ADA /* PlaceCard */,
 				4D3C0B75247D389700B22355 /* Places */,
 				4D3C0B53247AA43400B22355 /* Profile */,
@@ -736,6 +746,40 @@
 				B07E176B9BB2833B8A7E1B4C /* Pods_IGid.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3079E18248682610047E37A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F3079E1C2486829C0047E37A /* Wireframe */,
+				F3079E1F248683F90047E37A /* Presenter */,
+				F3079E19248682680047E37A /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		F3079E19248682680047E37A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3079E1A248682750047E37A /* MapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3079E1C2486829C0047E37A /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				F3079E1D248682AF0047E37A /* MapAssembly.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		F3079E1F248683F90047E37A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F3079E20248684060047E37A /* MapPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		F33C04EF24800BA900707ADA /* PlaceCard */ = {
@@ -991,8 +1035,10 @@
 				4D3C0B25247A78ED00B22355 /* Loadable.swift in Sources */,
 				F33C050224800BA900707ADA /* PlaceCardViewController.swift in Sources */,
 				F33C04FE24800BA900707ADA /* PlaceCardPresenter.swift in Sources */,
+				F3079E1B248682750047E37A /* MapViewController.swift in Sources */,
 				4DB00CDF245CC0D300FCC349 /* AuthViewController.swift in Sources */,
 				4D3C0B84247D389800B22355 /* PlacesPresenter.swift in Sources */,
+				F3079E1E248682AF0047E37A /* MapAssembly.swift in Sources */,
 				4D3C0B23247A787900B22355 /* MainTabBarController.swift in Sources */,
 				4DB00D1B24617EA100FCC349 /* BottomFromView.swift in Sources */,
 				F3C393A024815CFE00BDD89C /* PlacesService.swift in Sources */,
@@ -1037,6 +1083,7 @@
 				4D3C0B2C247A795700B22355 /* Assembly.swift in Sources */,
 				4D3C0B87247D389800B22355 /* PlacesViewModel.swift in Sources */,
 				4D3C0B10247A6BC600B22355 /* AuthInteractor.swift in Sources */,
+				F3079E21248684060047E37A /* MapPresenter.swift in Sources */,
 				4D3C0B8B247D39A200B22355 /* UIView + Edges.swift in Sources */,
 				4DB00CF0246045D100FCC349 /* LaunchViewController.swift in Sources */,
 				4D3C0B48247A89E800B22355 /* MainTabBarAssembly.swift in Sources */,
@@ -1048,6 +1095,7 @@
 				4D3C0B6F247BF52400B22355 /* ProfileCell.swift in Sources */,
 				4D3C0B1B247A72A800B22355 /* DependencyFactory.swift in Sources */,
 				4D3C0B91247D89BC00B22355 /* UserModel.swift in Sources */,
+				F3079E23248690C20047E37A /* AnnotationModel.swift in Sources */,
 				4D3C0B66247AA43500B22355 /* ProfileMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

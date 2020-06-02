@@ -26,6 +26,7 @@ final class PlaceCardViewController: UIViewController {
         layout.scrollDirection = .horizontal
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.decelerationRate = .fast
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = UIColor.backgroundLightGray()
@@ -47,6 +48,16 @@ final class PlaceCardViewController: UIViewController {
         presenter?.viewIsReady()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
     // MARK: - Drawing
     
@@ -60,7 +71,7 @@ final class PlaceCardViewController: UIViewController {
         ])
         
         self.view.addSubview(collectionView)
-        collectionView.edges(to: self.view)
+        collectionView.edges(to: self.view, top: -10)
         
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -142,7 +153,7 @@ final class PlaceCardViewController: UIViewController {
     }
     
     @objc private func roadButtonClick() {
-        
+        presenter?.roadButtonClick()
     }
     
     @objc private func wishButtonClick() {

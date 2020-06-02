@@ -8,6 +8,7 @@
 
 
 protocol PlacesInteractorInput {
+    func getPlaces()
 }
 
 
@@ -17,9 +18,12 @@ final class PlacesInteractor {
     
     weak var presenter: PlacesInteractorOutput?
     
+    private let placesService: PlacesService
+    
     // MARK: - Init
     
-    init() {
+    init(placesService: PlacesService) {
+        self.placesService = placesService
     }
     
     
@@ -29,7 +33,7 @@ final class PlacesInteractor {
 // MARK: - PlacesInteractorInput
 extension PlacesInteractor: PlacesInteractorInput {
     
-    func obtainAccountInfo() {
-
+    func getPlaces() {
+        placesService.getAllPlaces()
     }
 }

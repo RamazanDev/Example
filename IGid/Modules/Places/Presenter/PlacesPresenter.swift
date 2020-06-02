@@ -46,6 +46,8 @@ extension PlacesPresenter: PlacesViewOutput {
         let viewModel = dataProvider.createViewModel()
         view?.update(with: viewModel)
         view?.showLoading()
+        
+        interactor?.getPlaces()
     }
     
     func didSelectCell(at indexPath: IndexPath) {

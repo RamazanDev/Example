@@ -13,6 +13,7 @@ struct PlaceModel {
     let description: String
     let location: Location
     let images: [URL?]
+    let youtubeLink: URL?
 }
 
 struct Location {

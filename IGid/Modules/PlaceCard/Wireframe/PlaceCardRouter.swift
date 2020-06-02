@@ -11,6 +11,7 @@ import UIKit
 protocol PlaceCardRouterInput {
     
     func close()
+    func openMapModule()
 
 }
 
@@ -34,6 +35,10 @@ final class PlaceCardRouter {
 extension PlaceCardRouter: PlaceCardRouterInput {
     func close() {
         transition?.closeModule(nil)
+    }
+    
+    func openMapModule() {
+        transition?.push(moduleType: MapAssembly.self)
     }
     
 }
