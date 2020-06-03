@@ -13,20 +13,25 @@ protocol PlacesViewOutput: ViewOutput {
 }
 
 protocol PlacesInteractorOutput: class {
-
+    
+    func successLoadedPlaces(_ places: [PlaceModel])
+    
 }
 
 
 final class PlacesPresenter {
     
-    // MARK: - Properties
+    // MARK: - Dependency
     
+    private let dataProvider: PlacesDataProviderInput
     weak var view: PlacesViewInput?
-    
     var interactor: PlacesInteractorInput?
     var router: PlacesRouterInput?
     
-    private let dataProvider: PlacesDataProviderInput
+    // MARK: - Properties
+    
+    private var places: [PlaceModel]!
+
     
     
     // MARK: - Init
@@ -39,19 +44,18 @@ final class PlacesPresenter {
 
 // MARK: - PlacesViewOutput
 extension PlacesPresenter: PlacesViewOutput {
-   
+    
     // MARK: - BaseViewOutput
     
     func viewIsReady() {
-        let viewModel = dataProvider.createViewModel()
-        view?.update(with: viewModel)
+        
         view?.showLoading()
         
         interactor?.getPlaces()
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        router?.openPlaceCardModule(model: nil)
+        router?.openPlaceCardModule(model: places[indexPath.row])
     }
     
 }
@@ -59,5 +63,13 @@ extension PlacesPresenter: PlacesViewOutput {
 
 // MARK: - PlacesInteractorOutput
 extension PlacesPresenter: PlacesInteractorOutput {
-  
+    func successLoadedPlaces(_ places: [PlaceModel]) {
+        view?.hideLoading()
+        self.places = places
+        let viewModel = dataProvider.createViewModel(places)
+        view?.update(with: viewModel)
+    }
+    
+    
+    
 }

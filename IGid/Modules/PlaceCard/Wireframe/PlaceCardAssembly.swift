@@ -10,13 +10,13 @@ import UIKit
 
 final class PlaceCardAssembly: Assembly {
     
-    static func assembleModule() -> UIViewController {
-        
+    static func assembleModule(with model: TransitionModel) -> UIViewController {
+        let model = (model as! Model)
         let view = PlaceCardViewController()
         let sliderDataSource = PlaceCardSliderDataSource()
         let router = PlaceCardRouter(transition: view)
         
-        let presenter = PlaceCardPresenter()
+        let presenter = PlaceCardPresenter(place: model.place)
         let interactor = PlaceCardInteractor()
                         
         view.presenter = presenter
@@ -38,4 +38,10 @@ final class PlaceCardAssembly: Assembly {
         
     }
 
+}
+
+extension PlaceCardAssembly {
+    struct Model: TransitionModel {
+        let place: PlaceModel
+    }
 }

@@ -11,6 +11,13 @@ import Foundation
 extension CompositionFactory {
     
     final class CoreFactory: DependencyFactory {
+        
+        var distanceService: DistanceService {
+               return shared( factory: {
+                   return DistanceServiceImp()
+               })
+               
+           }
 
     }
 }

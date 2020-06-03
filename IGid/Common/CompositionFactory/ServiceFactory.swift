@@ -24,12 +24,14 @@ extension CompositionFactory {
             return unshared( factory: {
                 return UserServiceImp()
             })
+            
         }
         
         var placesService: PlacesService {
             return unshared( factory: {
                 return PlacesServiceImp()
             })
+            
         }
     }
 }

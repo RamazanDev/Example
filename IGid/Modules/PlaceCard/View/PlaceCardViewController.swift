@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PlaceCardViewInput: AlertPresentable, Loadable {
-    func update(with viewModel: PlaceCardViewModel)
+    func update(place: PlaceModel)
 }
 
 final class PlaceCardViewController: UIViewController {
@@ -144,8 +144,6 @@ final class PlaceCardViewController: UIViewController {
             
         ])
         
-        
-        
     }
     
     @objc private func closeButtonTap() {
@@ -169,8 +167,8 @@ final class PlaceCardViewController: UIViewController {
 // MARK: - PlaceCardViewInput
 extension PlaceCardViewController: PlaceCardViewInput {
     
-    func update(with viewModel: PlaceCardViewModel) {
-        dataSource?.update([])
+    func update(place: PlaceModel) {
+        dataSource?.update(place.images)
     }
     
     func showLoading() {

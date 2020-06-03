@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 protocol PlacesService {
-    func getAllPlaces()
+    func getAllPlaces(completion: @escaping (Result<[PlaceModel], Error>) -> Void)
 }
 
 final class PlacesServiceImp: PlacesService {
@@ -23,13 +23,17 @@ final class PlacesServiceImp: PlacesService {
         return db.collection("places")
     }
     
-    func getAllPlaces() {
-        placesRef.getDocuments { (result, error) in
-            print("result")
-            dump(result)
-            print("error")
-            dump(error)
-        }
+    func getAllPlaces(completion: @escaping (Result<[PlaceModel], Error>) -> Void) {
+        placesRef.getDocuments(completion: { (querySnapshot, error) in
+               if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                let models = querySnapshot?.documents.map({ (document) -> PlaceModel in
+                    return PlaceModel(document: document)!
+                })
+                completion(.success(models ?? []))
+            }
+        })
         
     }
     

@@ -15,7 +15,9 @@ final class PlacesAssembly: Assembly {
         let view = PlacesViewController()
         let router = PlacesRouter(transition: view)
         
-        let dataProvider = PlacesDataProvider()
+        let distanceService = CompositionFactory.shared.core.distanceService
+        
+        let dataProvider = PlacesDataProvider(distanceService: distanceService)
         let presenter = PlacesPresenter(dataProvider: dataProvider)
         
         let placesService = CompositionFactory.shared.service.placesService

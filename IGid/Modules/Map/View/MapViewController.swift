@@ -121,14 +121,16 @@ final class MapViewController: UIViewController {
         request.source = MKMapItem(placemark: startPoint)
         request.destination = MKMapItem(placemark: endPoint)
         request.transportType = .automobile
+        request.requestsAlternateRoutes = true
         
         let diraction = MKDirections(request: request)
         
         diraction.calculate { (response, error) in
             guard let response = response else { return }
+            
             for route in response.routes {
                 self.mapView.addOverlay(route.polyline)
-                print("distance \(route.expectedTravelTime)")
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
 
@@ -150,7 +152,9 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last?.coordinate else { return }
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
+        var latitudinalMeters: CLLocationDistance = 1000
+        
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: latitudinalMeters, longitudinalMeters: latitudinalMeters)
         mapView.setRegion(region, animated: true)
     }
     
@@ -184,14 +188,9 @@ extension MapViewController: MKMapViewDelegate {
         return viewMarker
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
-        
-    }
-    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolylineRenderer(overlay: overlay)
-        render.strokeColor = UIColor.red
+        render.strokeColor = UIColor.blue
         render.lineWidth = 4
         render.lineCap = .butt
         

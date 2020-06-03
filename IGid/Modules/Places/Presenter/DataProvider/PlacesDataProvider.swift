@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PlacesDataProviderInput {
-    func createViewModel() -> PlacesViewModel
+    func createViewModel(_ data: [PlaceModel]) -> PlacesViewModel
 }
 
 
@@ -19,18 +19,29 @@ final class PlacesDataProvider: PlacesDataProviderInput {
     
     typealias placeCellConfigurator = TableCellConfigurator<PlaceCell, PlaceCell.Model>
     
+    
+    // MARK: - Private props
+    
+    private let distanceService: DistanceService
+    
+    
+    // MARK: - Init
+    
+    init(distanceService: DistanceService) {
+        self.distanceService = distanceService
+    }
+
+    
     // MARK: - PlacesDataProviderInput
     
-    func createViewModel() -> PlacesViewModel {
+    func createViewModel(_ data: [PlaceModel]) -> PlacesViewModel {
 
         
         var rows: [PlacesViewModel.Row] = []
         
-        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
-        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
-        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
-        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
-        rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: "a", distance: 2))))
+        for place in data {
+            rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: place.name, location: place.location, distanceService: distanceService))))
+        }
 
         return PlacesViewModel(rows: rows)
     }

@@ -12,13 +12,27 @@ protocol MapViewOutput: ViewOutput {
 
 final class MapPresenter {
     
-    weak var view: MapViewInput?
+    // MARK: - Dependency
     
+    weak var view: MapViewInput?
+
+    
+    // MARK: - Private properties
+    
+    private let place: PlaceModel
+    
+    
+    // MARK: - Init
+    
+    init(place: PlaceModel) {
+        self.place = place
+    }
+        
 }
 
 extension MapPresenter: MapViewOutput {
     func viewIsReady() {
-        view?.showLocation(location: Location(longitude: -122.406467, latitude: 37.789834 ), name: "QWER")
+        view?.showLocation(location: place.location, name: place.name)
     }
     
     func locationServiceDisabled() {

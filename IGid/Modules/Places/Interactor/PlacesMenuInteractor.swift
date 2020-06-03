@@ -34,6 +34,13 @@ final class PlacesInteractor {
 extension PlacesInteractor: PlacesInteractorInput {
     
     func getPlaces() {
-        placesService.getAllPlaces()
+        placesService.getAllPlaces { [weak self] (result) in
+            switch result {
+            case .success(let places):
+                self?.presenter?.successLoadedPlaces(places)
+            case .failure(let error):
+                dump(error)
+            }
+        }
     }
 }

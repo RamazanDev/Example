@@ -91,12 +91,29 @@ extension PlaceCell: Configurable {
     struct Model {
         let backgroundImage: URL?
         let name: String
-        let distance: Double
+        let location: Location
+        let distanceService: DistanceService
     }
     
     func configure(with model: Model) {
         placeImageView.image = #imageLiteral(resourceName: "LaunchScreenImage")
-        nameLabel.text = "Дербент"
-        distanceLabel.text = "320 км"
+        nameLabel.text = model.name
+        if distanceLabel.text?.last == "м" {return}
+        distanceLabel.text = "..."
+        
+        model.distanceService.caculateDistance(coordinate: model.location) { (result) in
+            
+            switch result {
+                
+            case .success(let distance):
+                
+                self.distanceLabel.text = distance
+            case .failure:
+                
+                self.distanceLabel.isHidden = false
+            }
+            
+        }
+        
     }
 }

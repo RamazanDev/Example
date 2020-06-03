@@ -20,12 +20,24 @@ protocol PlaceCardInteractorOutput: class {
 
 final class PlaceCardPresenter {
     
-    // MARK: - Properties
+    // MARK: - Dependency
     
     weak var view: PlaceCardViewInput?
     
     var interactor: PlaceCardInteractorInput?
     var router: PlaceCardRouterInput?
+    
+    
+    // MARK: - Private properties
+    
+    private let place: PlaceModel
+    
+    
+    // MARK: - Init
+    
+    init(place: PlaceModel) {
+        self.place = place
+    }
     
 }
 
@@ -36,7 +48,7 @@ extension PlaceCardPresenter: PlaceCardViewOutput {
     // MARK: - BaseViewOutput
     
     func viewIsReady() {
-        view?.update(with: PlaceCardViewModel(rows: []))
+        view?.update(place: place)
     }
     
     func closeButtonCLick() {
@@ -44,7 +56,7 @@ extension PlaceCardPresenter: PlaceCardViewOutput {
     }
     
     func roadButtonClick() {
-        router?.openMapModule()
+        router?.openMapModule(place: self.place)
     }
     
 }

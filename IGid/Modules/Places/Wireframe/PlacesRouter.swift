@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PlacesRouterInput {
-    func openPlaceCardModule(model: PlaceModel?)
+    func openPlaceCardModule(model: PlaceModel)
 
 }
 
@@ -32,8 +32,9 @@ final class PlacesRouter {
 // MARK: - PlacesRouterInput
 extension PlacesRouter: PlacesRouterInput {
     
-    func openPlaceCardModule(model: PlaceModel?) {
-        transition?.present(moduleType: PlaceCardAssembly.self)
+    func openPlaceCardModule(model: PlaceModel) {
+        transition?.present(with: PlaceCardAssembly.Model(place: model),
+                            openModuleType: PlaceCardAssembly.self)
     }
    
 }
