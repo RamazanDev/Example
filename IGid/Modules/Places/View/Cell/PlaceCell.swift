@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class PlaceCell: ShrinkingTableViewCell {
     
@@ -96,7 +97,9 @@ extension PlaceCell: Configurable {
     }
     
     func configure(with model: Model) {
-        placeImageView.image = #imageLiteral(resourceName: "LaunchScreenImage")
+        placeImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        placeImageView.sd_setImage(with: model.backgroundImage, completed: nil)
+        
         nameLabel.text = model.name
         if distanceLabel.text?.last == "м" {return}
         distanceLabel.text = "..."

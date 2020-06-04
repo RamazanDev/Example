@@ -21,8 +21,9 @@ struct PlaceModel {
         guard let data = document.data() else { return nil }
         guard let name = data["name"] as? String,
             let youtubeLink = data["youtubeLink"] as? String,
-            let latitude = data["latitude"] as? Float,
-            let longitude = data["longitude"] as? Float,
+            let latitude = data["latitude"] as? Double,
+            let longitude = data["longitude"] as? Double,
+            let images = data["images"] as? [String],
             let description = data["description"] as? String else { return nil }
         
         self.id = document.documentID
@@ -30,15 +31,19 @@ struct PlaceModel {
         self.description = description
         self.location = Location(longitude: longitude, latitude: latitude)
         self.youtubeLink = URL(string: youtubeLink)
-        self.images = []
+        self.images = images.map({ (string) -> URL? in
+            return URL(string: string)
+        })
+        
     }
     
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
         guard let name = data["name"] as? String,
             let youtubeLink = data["youtubeLink"] as? String,
-            let latitude = data["latitude"] as? Float,
-            let longitude = data["longitude"] as? Float,
+            let latitude = data["latitude"] as? Double,
+            let longitude = data["longitude"] as? Double,
+            let images = data["images"] as? [String],
             let description = data["description"] as? String else { return nil }
         
         self.id = document.documentID
@@ -46,12 +51,15 @@ struct PlaceModel {
         self.description = description
         self.location = Location(longitude: longitude, latitude: latitude)
         self.youtubeLink = URL(string: youtubeLink)
-        self.images = []
+        self.images = images.map({ (string) -> URL? in
+            return URL(string: string)
+        })
+        
     }
     
 }
 
 struct Location {
-    let longitude: Float
-    let latitude: Float
+    let longitude: Double
+    let latitude: Double
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import SDWebImage
 
 final class PlaceCardSliderCell: UICollectionViewCell {
     
@@ -28,14 +29,14 @@ final class PlaceCardSliderCell: UICollectionViewCell {
     private func setupSubviews() {
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "LaunchScreenImage")
+        imageView.backgroundColor = .gray
         imageView.clipsToBounds = true
         self.clipsToBounds = true
         addSubview(imageView)
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.topAnchor.constraint(equalTo: self.topAnchor)
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
         imageViewCenterYLayoutConstraint = imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
@@ -53,6 +54,8 @@ extension PlaceCardSliderCell: Configurable {
     }
     
     func configure(with model: Model) {
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imageView.sd_setImage(with: model.imageURL, completed: nil)
     }
     
     func updateParalaxOffset(bounds: CGRect) {
@@ -61,7 +64,7 @@ extension PlaceCardSliderCell: Configurable {
         let offsetFromCenter = CGPoint(x: center.x - self.center.x, y: center.y - self.center.y)
         let maxVerticalOffset = (bounds.width) + (self.bounds.width)
 
-        let scaleFactor = 90 / maxVerticalOffset
+        let scaleFactor = 160 / maxVerticalOffset
         
         parallaxOffset = offsetFromCenter.x * scaleFactor
     }

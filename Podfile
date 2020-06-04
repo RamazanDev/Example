@@ -9,7 +9,9 @@ target 'IGid' do
 pod 'Firebase/Analytics'
 pod 'FirebaseUI/Auth'
 pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
 pod 'GoogleSignIn'	
 pod 'R.swift'
+pod 'SDWebImage', '~> 5.0'
 
 end

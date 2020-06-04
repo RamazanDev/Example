@@ -71,7 +71,7 @@ extension PlaceCardSliderDataSource: UICollectionViewDelegateFlowLayout {
 extension PlaceCardSliderDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 10
+        return sliderData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -113,6 +113,7 @@ extension PlaceCardSliderDataSource: PlaceCardSLiderDataSourceInput {
     }
     
     func update(_ data: [URL?]) {
+        self.sliderData = data
         collectionView?.reloadData()
     }
     

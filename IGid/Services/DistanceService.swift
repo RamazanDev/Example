@@ -20,9 +20,12 @@ final class DistanceServiceImp: DistanceService {
         locMan.startUpdatingLocation()
         return locMan
     }
+    
+    private var curLoc = CLLocationCoordinate2D(latitude: CLLocationDegrees(43.002165), longitude: CLLocationDegrees(47.461419))
 
     func caculateDistance(coordinate: Location, completion: @escaping (Result<String, Error>) -> Void) {
-        guard let myCoordinate = locationManager.location?.coordinate else { return }
+//        guard let myCoordinate = locationManager.location?.coordinate else { return }
+        let myCoordinate = curLoc
         let startPoint = MKPlacemark(coordinate: myCoordinate)
         let endPoint = MKPlacemark(coordinate:
             CLLocationCoordinate2D(latitude: CLLocationDegrees(coordinate.latitude),
@@ -40,10 +43,7 @@ final class DistanceServiceImp: DistanceService {
             guard let response = response else {
                 return
             }
-            
-            for route in response.routes {
-                completion(.success(route.distance.binade.toDistanceFormat()))
-            }
+            completion(.success(response.routes.first!.distance.toDistanceFormat()))
             
         }
     }

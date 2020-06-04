@@ -25,13 +25,20 @@ final class PlacesServiceImp: PlacesService {
     
     func getAllPlaces(completion: @escaping (Result<[PlaceModel], Error>) -> Void) {
         placesRef.getDocuments(completion: { (querySnapshot, error) in
+            
                if let err = error {
                 print("Error getting documents: \(err)")
+                
             } else {
-                let models = querySnapshot?.documents.map({ (document) -> PlaceModel in
-                    return PlaceModel(document: document)!
+                var models: [PlaceModel] = []
+                
+                querySnapshot?.documents.map({ (document) -> Void in
+                    if let model = PlaceModel(document: document) {
+                        models.append(model)
+                    }
                 })
-                completion(.success(models ?? []))
+                
+                completion(.success(models))
             }
         })
         

@@ -25,6 +25,10 @@ final class MapViewController: UIViewController {
     private let locationManager = CLLocationManager()
     
     
+    // MARK: - TODO
+    private var curLoc = CLLocationCoordinate2D(latitude: CLLocationDegrees(43.002165), longitude: CLLocationDegrees(47.461419))
+    
+    
     // MARK: - Public
     
     var presenter: MapViewOutput?
@@ -55,6 +59,7 @@ final class MapViewController: UIViewController {
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.delegate = self
+        mapView.mapType = .standard
         
         self.view.addSubview(mapView)
         
@@ -64,8 +69,10 @@ final class MapViewController: UIViewController {
     private func checkLocationEnabled() {
         
         if CLLocationManager.locationServicesEnabled() {
+            
             setupManager()
             checkAuthorization()
+            
         } else {
             
             presenter?.locationServiceDisabled()
@@ -92,7 +99,6 @@ final class MapViewController: UIViewController {
             mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
             mapView.showAnnotations(mapView.annotations, animated: true)
-
         case .denied:
             
             break
@@ -105,13 +111,13 @@ final class MapViewController: UIViewController {
         default:
             
             break
-            
         }
         
     }
     
     private func createRoute() {
-        guard let coordinate = locationManager.location?.coordinate else { return }
+//        guard let coordinate = locationManager.location?.coordinate else { return }
+        let coordinate = curLoc
         
         guard let location = mapView.annotations.first as? AnnotationModel else { return }
         let startPoint = MKPlacemark(coordinate: coordinate)
@@ -121,17 +127,17 @@ final class MapViewController: UIViewController {
         request.source = MKMapItem(placemark: startPoint)
         request.destination = MKMapItem(placemark: endPoint)
         request.transportType = .automobile
-        request.requestsAlternateRoutes = true
+//        request.requestsAlternateRoutes = true
         
         let diraction = MKDirections(request: request)
         
         diraction.calculate { (response, error) in
             guard let response = response else { return }
+            guard let route = response.routes.first else { return }
             
-            for route in response.routes {
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            }
+            self.mapView.addOverlay(route.polyline)
+            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+//            self.mapView.setRegion(MKCoordinateRegion(route.polyline.boundingMapRect), animated: true)
         }
 
     }
@@ -151,9 +157,10 @@ extension MapViewController: MapViewInput {
 extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last?.coordinate else { return }
-        var latitudinalMeters: CLLocationDistance = 1000
-        
+//        guard let location = locations.last?.coordinate else { return }
+        let location = curLoc
+        let latitudinalMeters: CLLocationDistance = 10000
+
         let region = MKCoordinateRegion(center: location, latitudinalMeters: latitudinalMeters, longitudinalMeters: latitudinalMeters)
         mapView.setRegion(region, animated: true)
     }
@@ -191,8 +198,8 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let render = MKPolylineRenderer(overlay: overlay)
         render.strokeColor = UIColor.blue
-        render.lineWidth = 4
-        render.lineCap = .butt
+        render.lineWidth = 8
+        render.lineCap = .round
         
         return render
     }

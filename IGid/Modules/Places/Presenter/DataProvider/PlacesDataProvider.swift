@@ -40,7 +40,7 @@ final class PlacesDataProvider: PlacesDataProviderInput {
         var rows: [PlacesViewModel.Row] = []
         
         for place in data {
-            rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: nil, name: place.name, location: place.location, distanceService: distanceService))))
+            rows.append(.place(configurator: placeCellConfigurator(item: PlaceCell.Model(backgroundImage: place.images[0], name: place.name, location: place.location, distanceService: distanceService))))
         }
 
         return PlacesViewModel(rows: rows)
